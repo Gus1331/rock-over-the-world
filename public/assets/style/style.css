@@ -1,0 +1,41 @@
+@charset "UTF-8";
+ 
+ /* FONTES (google fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&display=swap');
+
+ /* VARIAVEIS DE CORES, FONTES */
+:root{
+    --color00: white;
+    --color01: black;
+
+    --color10: #F2E2C4;
+    --color11: #00060D;
+    --color12: #400118;
+    --color13: #A60530;
+
+    --text01: 'Jomhuria', Verdana, sans-serif;
+    --title01: 'Lalezar', 'Times New Roman', sans-serif;
+    --title02: 'Anton', 'Times New Roman', sans-serif;
+}
+
+/* restringindo elementos de terem estilização padrão */
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: unset;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+    color: unset;
+    list-style: none;
+}
+
+body{
+    background-color: var(--color11);
+    font-family: var(--text01);
+    width: 1366px;
+    margin: auto;
+}

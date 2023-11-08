@@ -1,0 +1,2 @@
+// Funções background + header + footer
+
