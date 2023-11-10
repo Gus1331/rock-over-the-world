@@ -1,12 +1,12 @@
 @charset "UTF-8";
- 
- /* FONTES (google fonts) */
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jomhuria&display=swap');
 
- /* VARIAVEIS DE CORES, FONTES */
-:root{
+/* FONTES (google fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+
+/* VARIAVEIS DE CORES, FONTES */
+:root {
     --color00: white;
     --color01: black;
 
@@ -16,12 +16,12 @@
     --color13: #A60530;
 
     --text01: 'Jomhuria', Verdana, sans-serif;
-    --title01: 'Lalezar', 'Times New Roman', sans-serif;
-    --title02: 'Anton', 'Times New Roman', sans-serif;
+    --title01: 'League Gothic', 'Times New Roman', sans-serif;
+    --title02: 'Lilita One', 'Times New Roman', sans-serif;
 }
 
 /* restringindo elementos de terem estilização padrão */
-*{
+* {
     margin: 0;
     padding: 0;
     border: none;
@@ -31,11 +31,76 @@
     font-weight: normal;
     color: unset;
     list-style: none;
+
+    box-sizing: border-box;
+    border-collapse: collapse;
 }
 
-body{
+body {
     background-color: var(--color11);
     font-family: var(--text01);
-    width: 1366px;
-    margin: auto;
+}
+
+/*=============================================================================================================== */
+
+header {
+    height: 85px;
+    width: 100%;
+    padding: 0 5%;
+    font-family: var(--title01);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color10);
+
+}
+
+.logoHeader {
+    display: flex;
+    align-items: center;
+    font-size: 2.7em;
+    cursor: pointer;
+}
+
+.logoHeader>img {
+    height: 80px;
+    margin-right: 10px;
+}
+
+header ul {
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+}
+
+header nav .navOption {
+    padding: 0 10px;
+    margin: 0 10px;
+    font-size: 1.8em;
+    cursor: pointer;
+    transition: 100ms;
+}
+
+.navOption:hover,
+.navOption>button:hover {
+    text-shadow: 0 1px 5px rgba(255, 255, 255, 0.534);
+}
+
+.navOption>button {
+    background-color: var(--color13);
+    width: unset;
+    height: 45px;
+    padding: 0 25px;
+    border-radius: 10px;
+    font-family: var(--title01);
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: 500ms;
+    border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.navOption>button:hover {
+    background-color: #cc0e2e;
+    border: 1px solid white;
+    transition: 1000ms;
 }
