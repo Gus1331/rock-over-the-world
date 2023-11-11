@@ -9,25 +9,27 @@
     <link rel="stylesheet" href="assets/style/style.css"> <!-- BODY, HEADER, FOOTER -->
     <link rel="stylesheet" href="assets/style/home.css"> <!-- MAIN (HOMEPAGE) -->
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS library (animações on scroll) -->
+    
     <script src="assets/script/script.js"></script> <!-- FUNÇÕES PADRÕES, HEADER, FOOTER -->
     <script src="assets/script/home.js"></script> <!-- FUNÇÕES HOME -->
 </head>
 
 <body onload="">
-
+    
     <div id="screendiv">
-
+        
     </div>
-
+    
     <!-- HEADER -->
 
     <header>
-
+        
         <div class="logoHeader">
             <img src="assets/images/logo01.gif" alt="Logo">
             HOME
         </div>
-
+        
         <nav>
             <ul>
                 <li class="navOption">Artigos</li>
@@ -41,13 +43,64 @@
         </nav>
 
     </header>
+    
+    
+    <!-- BANNER -->
+    
+    <div class="banner">
+        <video controls loop src="assets/videos/alternative.mp4"></video>
+        <div class="bannerGradient"></div>
+    </div>
+    <div class="bcHeader"></div>        
+    <!-- <div data-aos-anchor-placement="top-top" data-aos="fade-down" class="bcHeader"></div> -->
 
     <!-- MAIN -->
-    <!-- FIM DO MAIN -->
 
+    <main>
+
+    </main>
+
+    <!-- FIM DO MAIN -->
+    
     <footer>
 
+        <ul class="contactIcons">
+            <a href="" rel="external">
+                <li><img src="assets/images/icon10.png"></li>
+            </a>
+            <a href="" rel="external">
+                <li><img src="assets/images/icon11.png"></li>
+            </a>
+            <a href="" rel="external">
+                <li><img src="assets/images/icon12.png"></li>
+            </a>
+            <a href="" rel="external">
+                <li><img src="assets/images/icon13.png"></li>
+            </a>
+        </ul>
+
+        <ul class="aboutLinks">
+            <a href="" rel="prev">
+                <li>HOME</li>
+            </a>
+            <a href="" rel="next">
+                <li>ARTIGOS</li>
+            </a>
+            <a href="" rel="author">
+                <li>SOBRE O AUTHOR</li>
+            </a>
+            <a href="" rel="external">
+                <li>SPTECH</li>
+            </a>
+        </ul>
+        
     </footer>
 
+    <div class="copyInfo">Copyright &copy; 2023 - &nbsp;<a href="" rel="author">Desenvolvido por Gus1331</a></div>
+
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script> <!-- AOS script-->
+        <script>
+          AOS.init();
+        </script>
 </body>
 </html>

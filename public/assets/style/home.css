@@ -1,0 +1,24 @@
+/* HOME PAGE */
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 555px;
+    overflow: hidden;
+}
+
+.banner>video {
+    width: 100%;
+}
+.banner > .bannerGradient{
+    background: linear-gradient(to top, var(--color11) 50%, rgba(0, 0, 255, 0));
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+
