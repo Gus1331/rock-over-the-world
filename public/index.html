@@ -1,5 +1,6 @@
 <!DOCTYPE html> <!-- Desenvolvido por Gus1331 -->
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,26 +11,28 @@
     <link rel="stylesheet" href="assets/style/home.css"> <!-- MAIN (HOMEPAGE) -->
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS library (animações on scroll) -->
-    
+
     <script src="assets/script/script.js"></script> <!-- FUNÇÕES PADRÕES, HEADER, FOOTER -->
     <script src="assets/script/home.js"></script> <!-- FUNÇÕES HOME -->
 </head>
 
 <body onload="">
-    
+
     <div id="screendiv">
-        
+
     </div>
-    
+
     <!-- HEADER -->
 
     <header>
-        
-        <div class="logoHeader">
-            <img src="assets/images/logo01.gif" alt="Logo">
-            HOME
-        </div>
-        
+
+        <a href="#home">
+            <div class="logoHeader">
+                <img src="assets/images/logo01.gif" alt="Logo">
+                HOME
+            </div>
+        </a>
+
         <nav>
             <ul>
                 <li class="navOption">Artigos</li>
@@ -43,64 +46,218 @@
         </nav>
 
     </header>
-    
-    
+
+
     <!-- BANNER -->
-    
-    <div class="banner">
+
+    <div class="banner" id="home">
         <video controls loop src="assets/videos/alternative.mp4"></video>
         <div class="bannerGradient"></div>
     </div>
-    <div class="bcHeader"></div>        
-    <!-- <div data-aos-anchor-placement="top-top" data-aos="fade-down" class="bcHeader"></div> -->
+    <div data-aos-anchor-placement="top-top" data-aos="fade-down" class="bcHeader"></div>
 
     <!-- MAIN -->
 
     <main>
 
+        <div class="bars1">
+            <svg class="bar01 bar" viewBox="0 0 885 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 44H885L844.497 0H0V44Z" fill="#F2E2C4" />
+                <rect y="8" width="885" height="27" fill="#00060D" />
+            </svg>
+
+            <img src="assets/images/logo01.gif">
+
+            <svg class="bar02 bar" viewBox="0 0 363 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 0H363V44H0L40 0Z" fill="#F2E2C4" />
+                <rect y="8" width="363" height="27" fill="#00060D" />
+            </svg>
+
+        </div>
+
+
+        <div class="introduction">
+            <img src="assets/images/object02.gif">
+
+            <div class="introductionText">
+                <h1>Sobre o projeto:</h1>
+                <div>
+                    <p> O rock é um dos gêneros mais influentes e duradouros da história da música, com uma ampla
+                        diversidade de estilos, artistas icônicos e uma base de fãs apaixonada. Aqui, iremos promover a
+                        compreensão e a apreciação das influências culturais, sociais e políticas que moldaram o rock ao
+                        longo dos anos, tornando-se um recurso educativo e inspirador para todos aqueles que se sentem
+                        atraídos por sua energia e poder expressivo.</p>
+
+                    <p>Sinta se livre para se expressar e viver no seu ritmo, pois isso é o verdadeiro objetivo do ROCK!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bars2">
+            <svg data-aos="slide-right" data-aos-delay="150" data-aos-anchor-placement="top-bottom" class="bar03 bar"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 699 44" fill="none">
+                <path d="M0 44H699L667.009 0H0V44Z" fill="#F2E2C4" />
+                <rect y="8" width="699" height="27" fill="#00060D" />
+            </svg>
+
+            <svg data-aos="slide-left" data-aos-delay="150" data-aos-anchor-placement="top-bottom" class="bar04 bar"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 702 44" fill="none">
+                <path d="M702 0L1.65701e-05 0L32.1282 44L702 44V0Z" fill="#F2E2C4" />
+                <rect x="702" y="35" width="702" height="27" transform="rotate(-180 702 35)" fill="#00060D" />
+            </svg>
+        </div>
+
+
+        <div class="cards">
+            <h2>Participe e interaja com nossa comunidade!</h2>
+            <ul>
+                <li>
+                    <img class="cardImage cardImg01" src="assets/images/icon22.png">
+                    <p>Leia artigos e fique atualizado do mundo do rock!</p>
+                </li>
+                <li>
+                    <img class="cardImage cardImg02" src="assets/images/icon21.png">
+                    <p>Não sabe o que curtir em seguida? Veja o que está mais popular no momento.</p>
+                </li>
+                <li>
+                    <img class="cardImage cardImg03" src="assets/images/icon20.png">
+                    <p>Vote por suas bandas, músicas e artistas favoritos, mostre o seu bom gosto a todos.</p>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="bars2">
+            <svg data-aos="slide-right" data-aos-delay="150" data-aos-anchor-placement="top-bottom" class="bar03 bar"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 699 44" fill="none">
+                <path d="M0 44H699L667.009 0H0V44Z" fill="#F2E2C4" />
+                <rect y="8" width="699" height="27" fill="#00060D" />
+            </svg>
+
+            <svg data-aos="slide-left" data-aos-delay="150" data-aos-anchor-placement="top-bottom" class="bar04 bar"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 702 44" fill="none">
+                <path d="M702 0L1.65701e-05 0L32.1282 44L702 44V0Z" fill="#F2E2C4" />
+                <rect x="702" y="35" width="702" height="27" transform="rotate(-180 702 35)" fill="#00060D" />
+            </svg>
+        </div>
+
+
+        <div class="phrase">
+            <div class="phraseGradient01"></div>
+            <p>"It's my life, its's now or never, I ain't gonna live forever." <br> -Bon Jovi</p>
+            <div class="phraseGradient02"></div>
+        </div>
+
+
+        <section class="playground">
+            <h2>Conheça alguns instrumentos do rock!</h2>
+            <div class="instrumentRow">
+                <div class="instruments">
+                    <div class="element">
+                        <img class="icon04" src="assets/images/icon04.png">
+                    </div>
+                    <div class="element">
+                        <img class="icon01" src="assets/images/icon01.png">
+                    </div>
+                    <div class="element">
+                        <img class="icon02" src="assets/images/icon02.png">
+                    </div>
+                    <div class="element">
+                        <img class="icon03" src="assets/images/icon03.png">
+                    </div>
+                </div>
+
+                <div class="instrumentDescription">
+                    <span id="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Eligendi voluptatibus ipsam minima voluptate blanditiis quam? Lorem ipsum dolor sit amet
+                        consectetur, adipisicing elit. Ipsum itaque aspernatur dolore incidunt architecto alias ratione
+                        sed facere eveniet, delectus quo rerum, </span>
+                    <span class="typing"></span>
+                    <hr>
+                </div>
+            </div>
+            <div class="instrumentRow">
+                <div class="instruments">
+                    <div class="element">
+                        <img class="icon05" src="assets/images/icon05.png">
+                    </div>
+                    <div class="element">
+                        <img class="icon06" src="assets/images/icon06.png">
+                    </div>
+                    <div class="element">
+                        <img class="icon07" src="assets/images/icon07.png">
+                    </div>
+                    <div class="element">
+                        <img class="icon08" src="assets/images/icon08.png">
+                    </div>
+                </div>
+
+                <div class="instrumentDescription">
+                    <span id="description"></span>
+                    <span class="typing"></span>
+                    <hr>
+                </div>
+            </div>
+        </section>
+
+        <section id="author">
+            <h2>Sobre mim:</h2>
+            <div class="authorContent">
+                <div class="authorFrame">
+                    <img src="assets/images/author.jpg" alt="Foto de Gustavo Oliveira de Souza 2020">
+                </div>
+                <div class="authorDescription">
+                    <h3>Gustavo Oliveira de Souza</h3>
+                    <p>Estudante full-stack cursando Análise e Desenvolvimento de Sistemas na faculdade SPTech,
+                        atualmente no primeiro semestre porém inicei meus estudos na área de TI em 2020. Rockeiro desde
+                        que eu me lembro por pessoa. <br>
+                        Atualmente estudando e procurando incrementar minhas habilidades e com um desejo de um
+                        futuro melhor a cada dia, acredito que com motivação e esforço somos capazes de fazer qualquer
+                        coisa desde que acreditamos em nós mesmos.</p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- FIM DO MAIN -->
-    
+
     <footer>
 
         <ul class="contactIcons">
-            <a href="" rel="external">
-                <li><img src="assets/images/icon10.png"></li>
-            </a>
-            <a href="" rel="external">
-                <li><img src="assets/images/icon11.png"></li>
-            </a>
-            <a href="" rel="external">
-                <li><img src="assets/images/icon12.png"></li>
-            </a>
-            <a href="" rel="external">
-                <li><img src="assets/images/icon13.png"></li>
-            </a>
+            <li>
+                <a href="https://github.com/Gus1331" rel="external" target="_blank"><img src="assets/images/icon10.png"></a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/gustavooliveiraaa/" rel="external" target="_blank"><img src="assets/images/icon11.png"></a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/gus_shineee/" rel="external" target="_blank"><img src="assets/images/icon12.png"></a>
+            </li>
+            <li>
+                <a href="mailto:gustavo.osouza@sptech.school" rel="external" target="_blank">
+                    <img src="assets/images/icon13.png">
+                </a>
+            </li>
         </ul>
 
         <ul class="aboutLinks">
-            <a href="" rel="prev">
-                <li>HOME</li>
-            </a>
-            <a href="" rel="next">
-                <li>ARTIGOS</li>
-            </a>
-            <a href="" rel="author">
-                <li>SOBRE O AUTHOR</li>
-            </a>
-            <a href="" rel="external">
-                <li>SPTECH</li>
-            </a>
+            <li><a href="#home" rel="prev">HOME</a></li>
+            <li><a href="" rel="next">ARTIGOS</a></li>
+            <li><a href="#author" rel="author">SOBRE O AUTHOR</a></li>
+            <li><a href="https://www.sptech.school/index.html" rel="external" target="_blank">SPTECH</a></li>
         </ul>
-        
+
     </footer>
 
-    <div class="copyInfo">Copyright &copy; 2023 - &nbsp;<a href="" rel="author">Desenvolvido por Gus1331</a></div>
+    <div class="copyInfo">Copyright &copy; 2023 - &nbsp;<a href="https://github.com/Gus1331" rel="author" target="_blank">Desenvolvido por Gus1331</a></div>
 
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script> <!-- AOS script-->
-        <script>
-          AOS.init();
-        </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script> <!-- AOS.js script-->
+    <script>
+        AOS.init();
+    </script>
 </body>
+
 </html>
