@@ -1,0 +1,85 @@
+<!DOCTYPE html> <!-- desenvolvido por Gus1331 -->
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Rock over the world</title>
+    <link rel="shortcut icon" href="assets/images/favicon.png"> <!-- FAVICON -->
+
+    <link rel="stylesheet" href="assets/style/style.css"> <!-- BODY, HEADER, FOOTER -->
+    <link rel="stylesheet" href="assets/style/cadastro.css"> <!-- CADASTRO -->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS library (animações on scroll) -->
+
+    <script src="assets/script/cadastro.js"></script> <!-- VALIDAÇÃO CADASTRO -->
+</head>
+
+<body>
+
+    <div class="error" id="div_error">Email Inválido</div>
+
+    <main>
+        <div class="title">
+            <img src="assets/images/object01.gif">
+            <h1> CADASTRO</h1>
+        </div>
+
+        <div class="row">Nome Completo: &nbsp; &nbsp;
+            <input type="text" maxlength="60" id="input_name">
+        </div>
+
+        <div class="row">Sexo:
+            <div class="sexValue spnSelected" onclick="setGender(this)" id="sexValue_M">M</div>
+            <div class="sexValue" onclick="setGender(this)" id="sexValue_F">F</div>
+            <div class="sexValue" onclick="setGender(this)" id="sexValue_Null">Não Declarar</div>
+            | &nbsp;
+            Nascimento: &nbsp;
+            <input type="date" id="input_dt_nascimento">
+        </div>
+
+        <div class="row">Email: &nbsp;
+            <input type="email" maxlength="256" id="input_email">
+        </div>
+
+        <div class="row"><span>Nome&nbsp;de&nbsp;Usuário:</span> &nbsp;
+            <input type="text" maxlength="20" id="input_userName" onkeyup="verificarApelido();">
+            <div id="userName_response"></div>
+        </div>
+
+        <div class="row">País: &nbsp;
+            <select id="select_pais">
+                <option disabled selected hidden>Selecionar</option>
+                <option value="Brasil">Brasil</option>
+                <option value="USA">Estados Unidos</option>
+                <option value="Canada">Canada</option>
+                <option value="France">França</option>
+            </select> &nbsp;
+            Estado: &nbsp;
+            <select id="select_regiao">
+                <option disabled selected hidden>Selecionar</option>
+                <option value="100">São Paulo</option>
+                <option value="101">Rio de Janeiro</option>
+                <option value="102">Bahia</option>
+            </select>
+        </div>
+
+
+        <div class="doubleRow">
+
+            <div class="row">
+                <span>Senha: &nbsp;</span>
+                <input type="text" id="input_senha_A" maxlength="30">
+            </div>
+            <div class="row">
+                <span>Confirmar senha: &nbsp;</span>
+                <input type="text" id="input_senha_B" maxlength="30">
+            </div>
+
+        </div>
+
+        <button class="btnRegister" onclick="cadastrarUsuario();">Cadastro</button>
+    </main>
+</body>
+
+</html>

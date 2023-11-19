@@ -1,0 +1,91 @@
+<!DOCTYPE html> <!-- Desenvolvido por Gus1331 -->
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Over the Word - HOME </title>
+    <link rel="shortcut icon" href="assets/images/favicon.png"> <!-- FAVICON -->
+
+    <link rel="stylesheet" href="assets/style/style.css"> <!-- BODY, HEADER, FOOTER -->
+    <link rel="stylesheet" href="assets/style/home.css"> <!-- MAIN (HOMEPAGE) -->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS library (animações on scroll) -->
+
+    <script defer src="assets/script/script.js"></script> <!-- FUNÇÕES PADRÕES, HEADER, FOOTER -->
+    <script defer src="assets/script/home.js"></script> <!-- FUNÇÕES HOME -->
+</head>
+
+<body>
+    <div id="loginPage"></div>
+    <div id="screendiv" onclick="closeLogin();">
+    </div>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <a href="index.html" rel="prev">
+            <div class="logoHeader">
+                <img src="assets/images/logo01.gif" alt="Logo">
+                HOME
+            </div>
+        </a>
+
+        <nav>
+            <ul>
+                <li class="navOption">Artigos</li>
+                <li class="navOption">ODS ONU</li>
+                <li class="navOption">Hall da fama</li>
+                <li class="navOption">Ranking</li>
+                <li class="navOption" id="li_login">
+                    <button onclick="openLogin();">LOGIN</button>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <footer>
+
+        <ul class="contactIcons">
+            <li>
+                <a href="https://github.com/Gus1331" rel="external" target="_blank"><img
+                        src="assets/images/icon10.png"></a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/gustavooliveiraaa/" rel="external" target="_blank"><img
+                        src="assets/images/icon11.png"></a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/gus_shineee/" rel="external" target="_blank"><img
+                        src="assets/images/icon12.png"></a>
+            </li>
+            <li>
+                <a href="mailto:gustavo.osouza@sptech.school" rel="external" target="_blank">
+                    <img src="assets/images/icon13.png">
+                </a>
+            </li>
+        </ul>
+
+        <ul class="aboutLinks">
+            <li><a href="index.html#home" rel="prev">HOME</a></li>
+            <li><a href="#artigos" rel="next">ARTIGOS</a></li>
+            <li><a href="index.html#section_author" rel="author">SOBRE O AUTHOR</a></li>
+            <li><a href="https://www.sptech.school/index.html" rel="external" target="_blank">SPTECH</a></li>
+        </ul>
+
+    </footer>
+
+    <div class="copyInfo">Copyright &copy; 2023 - &nbsp;<a href="https://github.com/Gus1331" rel="author"
+            target="_blank">Desenvolvido por Gus1331</a></div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script> <!-- AOS.js script-->
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>

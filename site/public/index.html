@@ -1,0 +1,296 @@
+<!DOCTYPE html> <!-- Desenvolvido por Gus1331 -->
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Over the Word - HOME </title>
+    <link rel="shortcut icon" href="assets/images/favicon.png"> <!-- FAVICON -->
+
+    <link rel="stylesheet" href="assets/style/style.css"> <!-- BODY, HEADER, FOOTER -->
+    <link rel="stylesheet" href="assets/style/home.css"> <!-- MAIN (HOMEPAGE) -->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS library (animações on scroll) -->
+
+    <script defer src="assets/script/script.js"></script> <!-- FUNÇÕES PADRÕES, HEADER, FOOTER -->
+    <script defer src="assets/script/home.js"></script> <!-- FUNÇÕES HOME -->
+</head>
+
+<body onload="startVideo()">
+
+    <!-- LOGIN / CADASTRO -->
+
+    <div id="loginPage">
+        <div class="topBarLogin"></div>
+        <img src="assets/images/logo01.gif">
+        <div class="loginFields">
+            <div class="loginField">
+                <div class="loginFieldIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+                        <path
+                            d="M480-497q-75 0-126.5-51.5T302-675q0-75 51.5-126T480-852q75 0 126.5 51T658-675q0 75-51.5 126.5T480-497ZM158-141v-132q0-32.302 17.695-60.599Q193.391-361.896 224-380q58-33 123.459-51T480-449q69 0 134.5 17.5T736-381q30.609 16.958 48.305 45.479Q802-307 802-273.055V-141H158Z" />
+                    </svg>
+                </div>
+                <input type="email" id="input_login_userName">
+            </div>
+            <div class="loginField">
+                <div class="loginFieldIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+                        <path
+                            d="M263.717-96Q234-96 213-117.15T192-168v-384q0-29.7 21.15-50.85Q234.3-624 264-624h24v-96q0-79.68 56.226-135.84t136-56.16Q560-912 616-855.84T672-720v96h24q29.7 0 50.85 21.15Q768-581.7 768-552v384q0 29.7-21.162 50.85Q725.676-96 695.96-96H263.717Zm216.495-192Q510-288 531-309.212q21-21.213 21-51Q552-390 530.788-411q-21.213-21-51-21Q450-432 429-410.788q-21 21.213-21 51Q408-330 429.212-309q21.213 21 51 21ZM360-624h240v-96q0-50-35-85t-85-35q-50 0-85 35t-35 85v96Z" />
+                    </svg>
+                </div>
+                <input type="text" id="input_login_password">
+                <div class="passwordDisplay loginFieldIcon  " onclick="showPasswordDisplay(true);">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+                        <path
+                            d="M480-312q70 0 119-49t49-119q0-70-49-119t-119-49q-70 0-119 49t-49 119q0 70 49 119t119 49Zm0-72q-40 0-68-28t-28-68q0-40 28-68t68-28q40 0 68 28t28 68q0 40-28 68t-68 28Zm0 192q-142.596 0-259.798-78.5T48-480q55-131 172.202-209.5T480-768q142.596 0 259.798 78.5T912-480q-55 131-172.202 209.5T480-192Z" />
+                    </svg>
+                </div>
+            </div>
+            <p>Não tem uma conta? &nbsp; <a href="cadastro.html">cadastre-se</a>.</p>
+            <button class="loginBtn" onclick="login();">Entrar</button>
+        </div>
+    </div>
+    <div id="screendiv" onclick="closeLogin();">
+    </div>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <a href="#home">
+            <div class="logoHeader">
+                <img src="assets/images/logo01.gif" alt="Logo">
+                HOME
+            </div>
+        </a>
+
+        <nav>
+            <ul>
+                <li class="navOption"><a href="artigos.html" rel="next">Artigos</a></li>
+                <li class="navOption">ODS ONU</li>
+                <li class="navOption">Hall da fama</li>
+                <li class="navOption">Ranking</li>
+                <li class="navOption" id="li_login">
+                    <button onclick="openLogin();">LOGIN</button>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!-- BANNER -->
+
+    <div class="banner" id="div_home">
+    </div>
+    <div data-aos-anchor-placement="top-top" data-aos="fade-down" class="bcHeader"></div>
+
+    <!-- MAIN -->
+
+    <main>
+
+        <div class="bars1">
+            <svg class="bar01 bar" viewBox="0 0 885 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 44H885L844.497 0H0V44Z" fill="#F2E2C4" />
+                <rect y="8" width="885" height="27" fill="#00060D" />
+            </svg>
+
+            <img src="assets/images/logo01.gif">
+
+            <svg class="bar02 bar" viewBox="0 0 363 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 0H363V44H0L40 0Z" fill="#F2E2C4" />
+                <rect y="8" width="363" height="27" fill="#00060D" />
+            </svg>
+
+        </div>
+
+
+        <div class="introduction">
+            <img src="assets/images/object02.gif">
+
+            <div class="introductionText">
+                <h1>Sobre o projeto:</h1>
+                <div>
+                    <p> O rock é um dos gêneros mais influentes e duradouros da história da música, com uma ampla
+                        diversidade de estilos, artistas icônicos e uma base de fãs apaixonada. Aqui, iremos promover a
+                        compreensão e a apreciação das influências culturais, sociais e políticas que moldaram o rock ao
+                        longo dos anos, tornando-se um recurso educativo e inspirador para todos aqueles que se sentem
+                        atraídos por sua energia e poder expressivo.</p>
+
+                    <p>Sinta se livre para se expressar e viver no seu ritmo, pois isso é o verdadeiro objetivo do ROCK!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bars2">
+            <svg data-aos="slide-right" data-aos-delay="150" data-aos-anchor-placement="top-bottom" class="bar03 bar"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 699 44" fill="none">
+                <path d="M0 44H699L667.009 0H0V44Z" fill="#F2E2C4" />
+                <rect y="8" width="699" height="27" fill="#00060D" />
+            </svg>
+
+            <svg data-aos="slide-left" data-aos-delay="150" data-aos-anchor-placement="top-bottom" class="bar04 bar"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 702 44" fill="none">
+                <path d="M702 0L1.65701e-05 0L32.1282 44L702 44V0Z" fill="#F2E2C4" />
+                <rect x="702" y="35" width="702" height="27" transform="rotate(-180 702 35)" fill="#00060D" />
+            </svg>
+        </div>
+
+
+        <div class="cards">
+            <h2>Participe e interaja com nossa comunidade!</h2>
+            <ul>
+                <li>
+                    <img class="cardImage cardImg01" src="assets/images/icon22.png">
+                    <p>Leia artigos e fique atualizado do mundo do rock!</p>
+                </li>
+                <li>
+                    <img class="cardImage cardImg02" src="assets/images/icon21.png">
+                    <p>Não sabe o que curtir em seguida? Veja o que está mais popular no momento.</p>
+                </li>
+                <li>
+                    <img class="cardImage cardImg03" src="assets/images/icon20.png">
+                    <p>Vote por suas bandas, músicas e artistas favoritos, mostre o seu bom gosto a todos.</p>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="bars2">
+            <svg data-aos="slide-right" data-aos-delay="150" data-aos-anchor-placement="top-bottom" class="bar03 bar"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 699 44" fill="none">
+                <path d="M0 44H699L667.009 0H0V44Z" fill="#F2E2C4" />
+                <rect y="8" width="699" height="27" fill="#00060D" />
+            </svg>
+
+            <svg data-aos="slide-left" data-aos-delay="150" data-aos-anchor-placement="top-bottom" class="bar04 bar"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 702 44" fill="none">
+                <path d="M702 0L1.65701e-05 0L32.1282 44L702 44V0Z" fill="#F2E2C4" />
+                <rect x="702" y="35" width="702" height="27" transform="rotate(-180 702 35)" fill="#00060D" />
+            </svg>
+        </div>
+
+
+        <div class="phrase">
+            <div class="phraseGradient01"></div>
+            <p>"It's my life, its's now or never, I ain't gonna live forever." <br> -Bon Jovi</p>
+            <div class="phraseGradient02"></div>
+        </div>
+
+
+        <section class="playground">
+            <h2>Conheça alguns instrumentos do rock!</h2>
+            <div class="instrumentRow">
+                <div class="instruments">
+                    <div class="element" onmouseover="describeInstrument(3,1)" onmouseout="stopDescribeInstrument()">
+                        <img class="icon04" src="assets/images/icon04.png">
+                    </div>
+                    <div class="element" onmouseover="describeInstrument(0,1)" onmouseout="stopDescribeInstrument()">
+                        <img class="icon01" src="assets/images/icon01.png">
+                    </div>
+                    <div class="element" onmouseover="describeInstrument(1,1)" onmouseout="stopDescribeInstrument()">
+                        <img class="icon02" src="assets/images/icon02.png">
+                    </div>
+                    <div class="element" onmouseover="describeInstrument(2,1)" onmouseout="stopDescribeInstrument()">
+                        <img class="icon03" src="assets/images/icon03.png">
+                    </div>
+                </div>
+
+                <div class="instrumentDescription">
+                    <span id="description01"></span>
+                    <span id="typing01" class="typing"></span>
+                    <hr>
+                </div>
+            </div>
+            <div class="instrumentRow">
+                <div class="instruments">
+                    <div class="element" onmouseover="describeInstrument(4,2);" onmouseout="stopDescribeInstrument()">
+                        <img class="icon05" src="assets/images/icon05.png">
+                    </div>
+                    <div class="element" onmouseover="describeInstrument(5,2);" onmouseout="stopDescribeInstrument()">
+                        <img class="icon06" src="assets/images/icon06.png">
+                    </div>
+                    <div class="element" onmouseover="describeInstrument(6,2);" onmouseout="stopDescribeInstrument()">
+                        <img class="icon07" src="assets/images/icon07.png">
+                    </div>
+                    <div class="element" onmouseover="describeInstrument(7,2);" onmouseout="stopDescribeInstrument()">
+                        <img class="icon08" src="assets/images/icon08.png">
+                    </div>
+                </div>
+
+                <div class="instrumentDescription">
+                    <span id="description02"></span>
+                    <span id="typing02" class="typing"></span>
+                    <hr>
+                </div>
+            </div>
+        </section>
+
+        <section id="section_author">
+            <h2>Sobre mim:</h2>
+            <div class="authorContent">
+                <div class="authorFrame">
+                    <img src="assets/images/author.jpg" alt="Foto de Gustavo Oliveira de Souza 2020">
+                </div>
+                <div class="authorDescription">
+                    <h3>Gustavo Oliveira de Souza</h3>
+                    <p>Estudante full-stack cursando Análise e Desenvolvimento de Sistemas na faculdade SPTech,
+                        atualmente no primeiro semestre porém inicei meus estudos na área de TI em 2020. Rockeiro desde
+                        que eu me lembro por pessoa. <br>
+                        Atualmente estudando e procurando incrementar minhas habilidades e com um desejo de um
+                        futuro melhor a cada dia, acredito que com motivação e esforço somos capazes de fazer qualquer
+                        coisa desde que acreditamos em nós mesmos.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FIM DO MAIN -->
+
+    <footer>
+
+        <ul class="contactIcons">
+            <li>
+                <a href="https://github.com/Gus1331" rel="external" target="_blank"><img
+                        src="assets/images/icon10.png"></a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/gustavooliveiraaa/" rel="external" target="_blank"><img
+                        src="assets/images/icon11.png"></a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/gus_shineee/" rel="external" target="_blank"><img
+                        src="assets/images/icon12.png"></a>
+            </li>
+            <li>
+                <a href="mailto:gustavo.osouza@sptech.school" rel="external" target="_blank">
+                    <img src="assets/images/icon13.png">
+                </a>
+            </li>
+        </ul>
+
+        <ul class="aboutLinks">
+            <li><a href="#div_home" rel="prev">HOME</a></li>
+            <li><a href="" rel="next">ARTIGOS</a></li>
+            <li><a href="#section_author" rel="author">SOBRE O AUTHOR</a></li>
+            <li><a href="https://www.sptech.school/index.html" rel="external" target="_blank">SPTECH</a></li>
+        </ul>
+
+    </footer>
+
+    <div class="copyInfo">Copyright &copy; 2023 - &nbsp;<a href="https://github.com/Gus1331" rel="author"
+            target="_blank">Desenvolvido por Gus1331</a></div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script> <!-- AOS.js script-->
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

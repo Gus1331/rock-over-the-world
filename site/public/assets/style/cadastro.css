@@ -1,0 +1,149 @@
+/* CADASTRO */
+
+
+body {
+    background-image: url(../images/background-static02.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 53%;
+}
+
+
+main {
+    position: relative;
+    width: 48%;
+    margin: 50px 6% 0 auto;
+}
+
+h1 {
+    display: inline;
+    color: var(--color00);
+    font-family: var(--title02);
+    text-align: center;
+    font-size: 4em;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-bottom: -30px;
+}
+
+.title>img {
+    width: 200px;
+    margin: -70px 0 0 10px;
+}
+
+main>.row input,
+select {
+    background-color: rgba(240, 248, 255, 0.144);
+    border-radius: 10px;
+    border: 1px solid var(--color00);
+    height: 1.8em;
+    font-family: var(--text01);
+    font-size: 1em;
+    padding: 0 8px;
+    flex: 1;
+}
+
+main .row {
+    display: flex;
+    margin: 15px 0;
+    justify-content: stretch;
+    align-items: center;
+    font-size: 1.3em;
+    color: var(--color00);
+    font-family: var(--title02);
+    letter-spacing: 1px;
+}
+
+.sexValue {
+    margin: 0 5px;
+    padding: 0 5px;
+    cursor: pointer;
+    color: rgb(163, 163, 163);
+}
+
+
+#userName_response {
+    width: 40%;
+    height: 100%;
+    text-wrap: nowrap;
+    padding: 0 9px;
+}
+
+.doubleRow {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: var(--color00);
+    font-family: var(--title02);
+    width: 70%;
+}
+
+.doubleRow span {
+    display: inline-block;
+    text-wrap: nowrap;
+    width: 175px;
+}
+
+.doubleRow>.row {
+    margin: 5px 0;
+}
+
+.doubleRow>.row input {
+    background-color: rgba(240, 248, 255, 0.144);
+    border-radius: 10px;
+    border: 1px solid var(--color00);
+    font-family: var(--text01);
+    font-size: 1em;
+    padding: 0 8px;
+    height: 1.8em;
+}
+
+.btnRegister {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color13);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    border: 1px solid var(--color00);
+    color: var(--color00);
+    font-family: var(--title02);
+    font-size: 2em;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.btnRegister:hover {
+    background-color: #cc0e2e;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.397);
+}
+
+select option {
+    background-color: var(--color12);
+}
+
+.spnSelected {
+    color: var(--color13);
+    transition: 250ms;
+}
+
+.error {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    width: 550px;
+    background-color: var(--color14);
+    left: 10px;
+    padding: 30px;
+    font-size: 1.4em;
+    border-radius: 3px;
+}
