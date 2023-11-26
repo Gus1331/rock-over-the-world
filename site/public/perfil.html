@@ -4,19 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Over the Word - HOME </title>
+    <title>Rock Over the Word - Perfil </title>
     <link rel="shortcut icon" href="assets/images/favicon.png"> <!-- FAVICON -->
 
     <link rel="stylesheet" href="assets/style/style.css"> <!-- BODY, HEADER, FOOTER -->
-    <link rel="stylesheet" href="assets/style/home.css"> <!-- MAIN (HOMEPAGE) -->
+    <link rel="stylesheet" href="assets/style/perfil.css"> <!-- MAIN (HOMEPAGE) -->
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS library (animações on scroll) -->
 
     <script defer src="assets/script/script.js"></script> <!-- FUNÇÕES PADRÕES, HEADER, FOOTER -->
-    <script defer src="assets/script/home.js"></script> <!-- FUNÇÕES HOME -->
+    <script defer src="assets/script/perfil.js"></script> <!-- FUNÇÕES PERFIL -->
+
+    <script defer src="assets/script/spotify.js"></script> <!-- AUTORIZAÇÃO PRA API -->
 </head>
 
-<body>
+<body onload="aplicarDados();">
     <div id="loginPage"></div>
     <div id="screendiv" onclick="closeLogin();">
     </div>
@@ -34,19 +36,45 @@
 
         <nav>
             <ul>
-                <li class="navOption">Artigos</li>
-                <li class="navOption"><a href="ods-onu.html" rel="next">ODS ONU</a></li>
-                <li class="navOption"><a href="hall-da-fama.html" rel="next">Hall da fama</a></li>
-                <li class="navOption"><a href="ranking.html" rel="next">Ranking</a></li>
-                <li class="navOption" id="li_login">
-                    <button onclick="openLogin();">LOGIN</button>
-            </ul>
+                <li class="navOption"><a href="artigos.html" rel="prev">Artigos</a></li>
+                <li class="navOption"><a href="ods-onu.html" rel="prev">ODS ONU</a></li>
+                <li class="navOption"><a href="hall-da-fama.html" rel="prev">Hall da fama</a></li>
+                <li class="navOption"><a href="ranking.html" rel="prev">Ranking</a></li>
         </nav>
 
     </header>
 
+    <div class="headerBc"></div>
 
-    <footer>
+    <div class="sideProfile">
+        <div class="profileContent">
+            <div class="profilePicture">
+                <img src="" id="img_imgPerfil_usuario">
+                <div class="profileEdit"></div>
+            </div>
+            <h1 id="h1_apelido_usuario">User</h1>
+            <p id="p_nome_usuario">user</p>
+            <span>Membro desde: &nbsp; <span id="span_dtConta_usuario">234567</span></span>
+            <p>Total de musicas curtidas: xxx</p>
+            <button onclick="logout(); goHome();">Logout</button>
+        </div>
+    </div>
+
+
+    <div class="favorites">
+        <div class="favItem">
+            <div class="favTitle">Música favorita:</div>
+            <div class="favCard">
+                <div class="nome" id="musica_nome"></div>
+                <div class="autor" id="musica_autor"></div>
+                <div class="data" id="musica_data"></div>
+                <div class="favCardImg" id="musica_foto"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <footer>
 
         <ul class="contactIcons">
             <li>
@@ -70,7 +98,7 @@
 
         <ul class="aboutLinks">
             <li><a href="index.html#home" rel="prev">HOME</a></li>
-            <li><a href="#artigos" rel="next">ARTIGOS</a></li>
+            <li><a href="artigos.html" rel="prev">ARTIGOS</a></li>
             <li><a href="index.html#section_author" rel="author">SOBRE O AUTHOR</a></li>
             <li><a href="https://www.sptech.school/index.html" rel="external" target="_blank">SPTECH</a></li>
         </ul>
@@ -78,7 +106,7 @@
     </footer>
 
     <div class="copyInfo">Copyright &copy; 2023 - &nbsp;<a href="https://github.com/Gus1331" rel="author"
-            target="_blank">Desenvolvido por Gus1331</a></div>
+            target="_blank">Desenvolvido por Gus1331</a></div> -->
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script> <!-- AOS.js script-->
     <script>

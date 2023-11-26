@@ -1,5 +1,13 @@
+const usuarioLogado = localStorage.getItem('usuario');
+
+if (usuarioLogado){
+    window.location = "index.html";
+}
+
+
 /* VARIAVEIS */
 
+let userData = {} // objeto responsável por guardar os dados do usuario e salvar no localStorage
 
 let nome;
 let apelido;
@@ -31,21 +39,14 @@ function verificarApelido() {
         userName_response.innerHTML = `<span style="color: red;">Apelido inválido</span>`;
     }
     else { // SELECT * APELIDOS
-        fetch("/usuarios/cadastrar", {
+        fetch("/usuarios/autenticarApelido", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                'Accept': 'application/json'
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nome,
-                apelidoServer: apelido,
-                dtNascServer: dtNasc,
-                emailServer: email,
-                senhaServer: senha,
-                sexoServer: sexo,
-                regiaoServer: regiao
+                apelidoServer: apelido
             }),
         })
             .then(function (resposta) {
@@ -53,14 +54,24 @@ function verificarApelido() {
 
                 if (resposta.ok) {
 
-                    console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+                    console.log("sucesso");
+                    return resposta.json();
 
-                    setTimeout(() => {
-                        window.location = "index.html";
-                    }, "5000");
-
+                    // userName_response.innerHTML = `<span style="color: green;">Apelido disponível :D</span>`;
+                    // userName_response.innerHTML = `<span style="color: red;">Apelido inválido</span>`;
                 } else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
+
+                    throw "Houve um erro ao pesquisar apelido no banco de dados";
+                }
+            }).then(data => {
+                console.log('Resposta:', data);
+
+                if (data.allowed) {
+                    userName_response.innerHTML = `<span style="color: green;">Apelido disponível :D</span>`;
+                } else if (data.allowed == false) {
+                    userName_response.innerHTML = `<span style="color: red;">Apelido indisponível :(</span>`;
+                } else {
+                    console.log(`Resposta retornou vazia`)
                 }
             })
             .catch(function (resposta) {
@@ -206,9 +217,6 @@ function cadastrarUsuario() {
 
     }
 
-
-
-
     console.log(errorList);
 
     if (errorList.length > 0) {
@@ -243,14 +251,7 @@ function cadastrarUsuario() {
 
                 if (resposta.ok) {
 
-                    console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
-                    div_error.innerHTML = `Cadastro realizado com sucesso! Redirecionando para tela de Login...`;
-                    div_error.style.display = "block";
-                    div_error.style.backgroundColor = "rgb(30, 238, 75)";
-
-                    setTimeout(() => {
-                        window.location = "index.html";
-                    }, "5000");
+                    setTimeout(buscarDados, 500);
 
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";
@@ -263,4 +264,72 @@ function cadastrarUsuario() {
         return false;
 
     }
+}
+
+function buscarDados() {
+    console.log("Buscando os dados inseridos...")
+
+    fetch("/usuarios/requisitarDados", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            apelidoServer: apelido,
+            senhaServer: senha
+        }),
+    }).then(resposta => {
+        return resposta.json();
+    }).then(data => {
+        userData = data;
+
+        setTimeout(conectarCriarFavoritos, 500);
+    }
+    ).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    })
+
+
+
+
+
+
+}
+
+function conectarCriarFavoritos() {
+    console.log("Buscando os dados inseridos...")
+
+    fetch("/usuarios/conectarFavoritos", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            idUsuarioServer: userData[0].idUsuario
+        }),
+    }).then(function (resposta) {
+        if (resposta.ok) {
+
+            setTimeout(finalizarCadastro, 500)
+        }
+        else {
+            throw "Houve um erro ao tentar conectar com favoritos!";
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    })
+
+}
+
+function finalizarCadastro() {
+    localStorage.setItem('usuario', JSON.stringify(userData[0]));
+
+    console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+    div_error.innerHTML = `Cadastro realizado com sucesso! Redirecionando para tela de Login...`;
+    div_error.style.display = "block";
+    div_error.style.backgroundColor = "rgb(30, 238, 75)";
+
+    setTimeout(() => {
+        window.location = "index.html";
+    }, "5000");
 }

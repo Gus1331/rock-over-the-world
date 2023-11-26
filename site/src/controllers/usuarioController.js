@@ -1,5 +1,38 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+
+function autenticarApelido(req, res) {
+    var apelido = req.body.apelidoServer;
+
+    if (apelido == undefined) {
+        res.status(400).send("Seu apelido está undefined!");
+
+    } else {
+        usuarioModel.autenticarApelido(apelido).then(
+            function (resultadoAutenticarApelido) {
+                console.log(`\nResultados encontrados: ${resultadoAutenticarApelido.length}`);
+                console.log(`Resultados: ${JSON.stringify(resultadoAutenticarApelido)}`); // transforma JSON em String
+
+                if (resultadoAutenticarApelido.length == 0) {
+                    res.json({
+                        allowed: true
+                    })
+                } else if (resultadoAutenticarApelido.length == 1) {
+                    res.json({
+                        allowed: false
+                    })
+                } else {
+                    res.status(403).send("Erro ao verificar apelido");
+                }
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao realizar a verificação apelido: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+}
 
 function autenticar(req, res) {
     var apelido = req.body.apelidoServer;
@@ -19,21 +52,18 @@ function autenticar(req, res) {
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
+                        res.json({
+                            id: resultadoAutenticar[0].idUsuario,
+                            apelido: resultadoAutenticar[0].apelido,
+                            nome: resultadoAutenticar[0].nome,
+                            senha: resultadoAutenticar[0].senha,
+                            dtNasc: resultadoAutenticar[0].dtNasc,
+                            dtConta: resultadoAutenticar[0].dtConta,
+                            sexo: resultadoAutenticar[0].sexo,
+                            email: resultadoAutenticar[0].email,
+                            imgPerfil: resultadoAutenticar[0].imgPerfil
+                        });
 
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
-                                    res.json({
-                                        id: resultadoAutenticar[0].id,
-                                        apelido: resultadoAutenticar[0].apelido,
-                                        nome: resultadoAutenticar[0].nome,
-                                        senha: resultadoAutenticar[0].senha,
-                                        aquarios: resultadoAquarios
-                                    });
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
-                            })
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("apelido e/ou senha inválido(s)");
                     } else {
@@ -78,7 +108,7 @@ function cadastrar(req, res) {
         res.status(400).send("Seu sexo está undefined!");
     } else {
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        
         usuarioModel.cadastrar(nome, email, senha, apelido, dtNasc, regiao, sexo)
             .then(
                 function (resultado) {
@@ -97,7 +127,49 @@ function cadastrar(req, res) {
     }
 }
 
+
+
+function requisitarDados(req, res) {
+    var senha = req.body.senhaServer;
+    var apelido = req.body.apelidoServer;
+
+    usuarioModel.requisitarDados(apelido, senha)
+        .then(resultado => {
+            res.json(resultado);
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao requisitar dados! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function conectarFavoritos(req, res) {
+    var idUsuario = req.body.idUsuarioServer;
+
+    usuarioModel.conectarFavoritos(idUsuario)
+        .then(resultado => {
+            res.json(resultado);
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao pegar id de favoritos! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    autenticarApelido,
+    cadastrar,
+    requisitarDados,
+    conectarFavoritos
 }

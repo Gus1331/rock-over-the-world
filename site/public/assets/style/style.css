@@ -134,6 +134,35 @@ header nav .navOption {
     transition: 1000ms;
 }
 
+.navOption .profile{
+    position: relative;
+    width: 190px;
+    display: flex;
+    cursor: auto;
+    align-items: center;
+}
+
+.navOption .profile:hover{
+    text-shadow: none;
+}
+
+.navOption .profile > img{
+    border: 2px solid var(--color10);
+    border-radius: 5px;
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.navOption .profile p span{
+    font-size: 0.75em;
+    cursor: pointer;
+}
+
+.navOption .profile p > span:last-child{
+    color: rgba(255, 255, 255, 0.692);
+}
+
 .bcHeader {
     z-index: 2;
     position: sticky;

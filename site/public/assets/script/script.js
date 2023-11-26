@@ -1,3 +1,19 @@
+let usuarioData;
+
+
+function dataLocalStorage(){
+    let usuarioLogado = localStorage.getItem('usuario');
+    
+    if (usuarioLogado) {
+        usuarioData = JSON.parse(usuarioLogado);
+        console.log(usuarioData)
+        loginOn();
+    }
+}
+dataLocalStorage();
+
+
+
 // Funções background + header + footer
 let apelido;
 
@@ -28,25 +44,40 @@ function login() {
             apelidoServer: apelido,
             senhaServer: senha
         })
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
+    }).then(resposta => {
+        return resposta.json();
 
-        if (resposta.ok) {
-            console.log(resposta);
-
-
-        } else {
-
-            console.log("Houve um erro ao tentar realizar o login!");
-
-            resposta.text().then(texto => {
-                console.error(texto);
-            });
-        }
-
-    }).catch(function (erro) {
+    }).then(data => {
+        localStorage.setItem('usuario', JSON.stringify(data));
+        console.log("Login realizado com sucesso!");
+        console.log(data);
+        dataLocalStorage();
+        closeLogin();
+        loginOn();
+    }
+    ).catch(function (erro) {
         console.log(erro);
     })
+}
 
-    return false;
+function loginOn() {
+        li_login.innerHTML = `
+        <div class="profile">
+        <img src="assets/images/profile/${usuarioData.imgPerfil}.png">
+        <p>
+            <span class="profilename" id="span_userName">${usuarioData.apelido}</span>
+            <br>
+            <span class="logout" onclick="logout();">Logout</span>
+        </p>
+    </div>
+        `;
+   
+
+}
+
+function logout() {
+    localStorage.clear();
+    li_login.innerHTML = `
+    <button onclick="openLogin();">LOGIN</button>
+    `;
 }

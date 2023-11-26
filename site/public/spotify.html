@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="    ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spotify</title>
+</head>
+
+<body onload="">
+
+</body>
+
+</html>
+<script>
+
+    const clientId = 'edf4e66a7aea4fcc939e2dbe34d1a05f';
+    const clientSecret = '4e1c0971411345a39823e5586e03c140';
+    const tokenEndpoint = 'https://accounts.spotify.com/api/token';
+    let accessToken = 'SEU_TOKEN_DE_ACESSO';
+
+
+    const data = new URLSearchParams();
+    data.append('grant_type', 'client_credentials');
+    data.append('client_id', clientId);
+    data.append('client_secret', clientSecret);
+
+    fetch(tokenEndpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: data
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Token de acesso:', data.access_token);
+            accessToken = data.access_token;
+            // Faça algo com o token de acesso retornado
+        })
+        .catch(error => {
+            console.error('Ocorreu um erro:', error);
+        });
+
+
+    /*
+
+
+    const clientId = '4e1c0971411345a39823e5586e03c140'; // Substitua pelo seu clientId
+    const clientSecret = '4e1c0971411345a39823e5586e03c140x'; // Substitua pelo seu clientSecret
+    const redirectUri = 'http://localhost:3000/callback'; // Substitua pela URL de redirecionamento configurada no Spotify for Developers
+
+    // Endpoint de autorização do Spotify
+    const authorizationUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(redirectUri)}&scope=user-read-private%20user-read-email`;
+
+    // Função para obter o código de autorização após a autenticação do usuário
+    function obterCodigoAutorizacao() {
+        window.location = authorizationUrl;
+    }
+
+    // Função para trocar o código de autorização pelo token de acesso
+    function trocarCodigoPorToken(codigoAutorizacao) {
+        const tokenUrl = 'https://accounts.spotify.com/api/token';
+
+        const requestBody = {
+            grant_type: 'authorization_code',
+            code: codigoAutorizacao,
+            redirect_uri: redirectUri,
+            client_id: clientId,
+            client_secret: clientSecret
+        };
+
+        fetch(tokenUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Autorization' : 'Basic ' 
+            },
+            body: new   (requestBody)
+        })
+            .then(response => response.json())
+            .then(data => {
+                const accessToken = data.access_token;
+                // Use o accessToken para fazer solicitações à API do Spotify
+                console.log('Token de acesso:', accessToken);
+                // Agora você pode fazer solicitações à API do Spotify usando o accessToken
+            })
+            .catch(error => {
+                console.error('Erro ao trocar código por token:', error);
+            });
+    }
+
+
+
+
+    // ------------------------------------------------------------------------------------------------------------
+
+    /**/
+    function getData() {
+        // Substitua 'SEU_TOKEN_DE_ACESSO' pelo seu token de acesso válido do Spotify
+
+        // ID de um artista no Spotify (por exemplo, "Coldplay")
+        const artistId = '4gzpq5DPGxSnKTe4SA8HAU'; // ID do Coldplay como exemplo
+
+        // URL da API do Spotify para obter informações sobre um artista específico
+        const url = `https://api.spotify.com/v1/artists/${artistId}`;
+
+        // Cabeçalhos para autenticar a solicitação com o token de acesso
+        const headers = {
+            'Authorization': `Bearer ${accessToken}`
+        };
+
+        // Fazendo a solicitação GET para obter informações sobre o artista
+        fetch(url, {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${accessToken}` }
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Erro ao obter informações do artista');
+            })
+            .then(data => {
+                // Exibindo as informações do artista no console
+                console.log(`Nome do artista: ${data.name}`);
+                console.log(`Gêneros: ${data.genres.join(', ')}`);
+                console.log(`Popularidade: ${data.popularity}`);
+            })
+            .catch(error => {
+                console.error('Houve um erro:', error);
+            });
+
+    }
+
+</script>

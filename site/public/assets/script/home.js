@@ -50,7 +50,7 @@ function describeInstrument(instrument, position) {
     instrumentPosition = instrument;
     writePosition = position;
     
-    typing = setInterval(type, 44); // digita caractere a cada x ms
+    typing = setInterval(type, 25); // digita caractere a cada x ms
     
 
     if (writePosition == 1) {
