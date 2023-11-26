@@ -100,7 +100,7 @@
         // Substitua 'SEU_TOKEN_DE_ACESSO' pelo seu token de acesso válido do Spotify
 
         // ID de um artista no Spotify (por exemplo, "Coldplay")
-        const artistId = '4gzpq5DPGxSnKTe4SA8HAU'; // ID do Coldplay como exemplo
+        const artistId = '2tRsMl4eGxwoNabM08Dm4I'; // ID do Coldplay como exemplo
 
         // URL da API do Spotify para obter informações sobre um artista específico
         const url = `https://api.spotify.com/v1/artists/${artistId}`;
@@ -126,6 +126,7 @@
                 console.log(`Nome do artista: ${data.name}`);
                 console.log(`Gêneros: ${data.genres.join(', ')}`);
                 console.log(`Popularidade: ${data.popularity}`);
+                console.log(data);
             })
             .catch(error => {
                 console.error('Houve um erro:', error);

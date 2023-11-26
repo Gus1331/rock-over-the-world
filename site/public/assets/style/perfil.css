@@ -7,6 +7,7 @@
     border-bottom: 2px solid var(--color00);
     position: sticky;
     top: 0;
+    z-index: 1;
 }
 
 .sideProfile {
@@ -104,20 +105,61 @@
     letter-spacing: 1px;
 }
 
-.favItem{
+.favItem {
     margin-right: 50px;
 }
 
-.favTitle{
+.favTitle {
     font-size: 1.1em;
     font-family: var(--title02);
     margin-bottom: 15px;
 }
 
-.favCard{
+.favCard {
+    position: relative;
     height: 130px;
     width: 390px;
     border-radius: 10px;
+    padding: 20px 15px;
     background-color: var(--color11);
     border: 1px solid var(--color00);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.favCardImg {
+    background-color: azure;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.favCard .nome{
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    width: calc(100% - 110px);
+}
+
+.autor, .data{
+    font-size: 0.9em;
+}
+
+.favCardImg > img{
+    width: 100%;
+}
+
+.favCard .favUnset{
+    width: 300px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
 }

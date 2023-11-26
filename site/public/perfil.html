@@ -18,7 +18,7 @@
     <script defer src="assets/script/spotify.js"></script> <!-- AUTORIZAÇÃO PRA API -->
 </head>
 
-<body onload="aplicarDados();">
+<body onload="logado();">
     <div id="loginPage"></div>
     <div id="screendiv" onclick="closeLogin();">
     </div>
@@ -56,7 +56,7 @@
             <p id="p_nome_usuario">user</p>
             <span>Membro desde: &nbsp; <span id="span_dtConta_usuario">234567</span></span>
             <p>Total de musicas curtidas: xxx</p>
-            <button onclick="logout(); goHome();">Logout</button>
+            <button onclick="goHome(); logout();">Logout</button>
         </div>
     </div>
 
@@ -65,12 +65,60 @@
         <div class="favItem">
             <div class="favTitle">Música favorita:</div>
             <div class="favCard">
-                <div class="nome" id="musica_nome"></div>
-                <div class="autor" id="musica_autor"></div>
-                <div class="data" id="musica_data"></div>
-                <div class="favCardImg" id="musica_foto"></div>
+                <img class="favUnset" src="assets/images/fav-unset.jpg">
             </div>
         </div>
+
+        <div class="favItem">
+            <div class="favTitle">Album favorito:</div>
+            <div class="favCard">
+                <img class="favUnset" src="assets/images/fav-unset.jpg">
+
+            </div>
+        </div>
+
+        <div class="favItem">
+            <div class="favTitle">Banda favorita:</div>
+            <div class="favCard">
+                <img class="favUnset" src="assets/images/fav-unset.jpg">
+            </div>
+        </div>
+
+        <div class="favItem">
+            <div class="favTitle">Artista solo favorito:</div>
+            <div class="favCard">
+                <img class="favUnset" src="assets/images/fav-unset.jpg">
+            </div>
+        </div>
+
+        <div class="favItem">
+            <div class="favTitle">Solo de guitarra favorito:</div>
+            <div class="favCard">
+                <img class="favUnset" src="assets/images/fav-unset.jpg">
+            </div>
+        </div>
+
+        <div class="favItem">
+            <div class="favTitle">Vocal favorito:</div>
+            <div class="favCard">
+                <img class="favUnset" src="assets/images/fav-unset.jpg">
+            </div>
+        </div>
+
+        <div class="favItem">
+            <div class="favTitle">Sub-genêro favorito:</div>
+            <div class="favCard">
+                <img class="favUnset" src="assets/images/fav-unset.jpg">
+            </div>
+        </div>
+
+        <div class="favItem">
+            <div class="favTitle">Instrumento favorito:</div>
+            <div class="favCard">
+                <img class="favUnset" src="assets/images/fav-unset.jpg">
+            </div>
+        </div>
+
     </div>
 
 
