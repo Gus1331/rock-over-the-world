@@ -138,7 +138,7 @@ function cadastrarUsuario() {
         }
 
         if (email.indexOf("@") == -1 ||
-            email.indexOf(".") < email.indexOf("@") ||
+            email.indexOf(".") < -1 ||
             email.length < 12) {
             errorList.push("Email inválido")
             console.error("email");

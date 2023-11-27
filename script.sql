@@ -34,7 +34,7 @@ CREATE TABLE favoritos (
     
 CREATE TABLE musica (
 	idMusica INT PRIMARY KEY AUTO_INCREMENT,
-    idApiSpotify (????));
+    idApiSpotify VARCHAR(45));
     
 CREATE TABLE curtida (
 	fkMusica INT,
@@ -92,5 +92,5 @@ SELECT DATE_FORMAT(dtConta, "%d/%m/%Y") AS dtConta FROM usuario;
 UPDATE usuario SET  imgPerfil = "profile-img03" WHERE apelido = "KevinSampaio";
 
 
-SELECT musica , album, banda, artista, solo, vocal, subGen, instrumento FROM usuario JOIN favoritos ON fkUsuario = idUsuario WHERE idUsuario = 10001;
-UPDATE favoritos SET musica = "Painkiller" WHERE idFav = 20001;
+SELECT musica , album, banda, artista, solo, vocal, subGen, instrumento FROM usuario JOIN favoritos ON fkUsuario = idUsuario WHERE idUsuario = 10001;	
+UPDATE favoritos SET vocal = "5LyRtsQLhcXmy50VXhQXXS" WHERE idFav = 20001;

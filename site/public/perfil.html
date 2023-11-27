@@ -19,8 +19,20 @@
 </head>
 
 <body onload="logado();">
-    <div id="loginPage"></div>
-    <div id="screendiv" onclick="closeLogin();">
+    <div id="search">
+        <span class="cancelar" onclick="closeSearch();">x</span>
+        <h2 id="searchLabel">Musica favorita:</h2>
+        <input type="text" class="searchBar" id="search_musica" onkeydown="listarMusicas('Musica');" placeholder="Pesquise aqui">
+        <input type="text" class="searchBar" id="search_album" onkeydown="listarAlbums();" placeholder="Pesquise aqui">
+        <input type="text" class="searchBar" id="search_banda" onkeydown="listarArtistas('Banda');" placeholder="Pesquise aqui">
+        <input type="text" class="searchBar" id="search_artista" onkeydown="listarArtistas('Artista');" placeholder="Pesquise aqui">
+        <input type="text" class="searchBar" id="search_solo" onkeydown="listarMusicas('Solo');" placeholder="Pesquise aqui">
+        <input type="text" class="searchBar" id="search_vocal" onkeydown="listarMusicas('Vocal');" placeholder="Pesquise aqui">
+        <ul id="searchResult">
+
+        </ul>
+    </div>
+    <div id="screendivSearch" onclick="closeSearch();">
     </div>
 
     <!-- HEADER -->
@@ -54,7 +66,7 @@
             </div>
             <h1 id="h1_apelido_usuario">User</h1>
             <p id="p_nome_usuario">user</p>
-            <span>Membro desde: &nbsp; <span id="span_dtConta_usuario">234567</span></span>
+            <span>Membro desde: &nbsp; <span id="span_dtConta_usuario">data</span></span>
             <p>Total de musicas curtidas: xxx</p>
             <button onclick="goHome(); logout();">Logout</button>
         </div>
@@ -64,14 +76,14 @@
     <div class="favorites">
         <div class="favItem">
             <div class="favTitle">Música favorita:</div>
-            <div class="favCard">
+            <div class="favCard" onclick="editarMusica();">
                 <img class="favUnset" src="assets/images/fav-unset.jpg">
             </div>
         </div>
 
         <div class="favItem">
             <div class="favTitle">Album favorito:</div>
-            <div class="favCard">
+            <div class="favCard" onclick="editarAlbum();">
                 <img class="favUnset" src="assets/images/fav-unset.jpg">
 
             </div>
@@ -79,82 +91,47 @@
 
         <div class="favItem">
             <div class="favTitle">Banda favorita:</div>
-            <div class="favCard">
+            <div class="favCard" onclick="editarBanda();">
                 <img class="favUnset" src="assets/images/fav-unset.jpg">
             </div>
         </div>
 
         <div class="favItem">
             <div class="favTitle">Artista solo favorito:</div>
-            <div class="favCard">
+            <div class="favCard" onclick="editarArtista();">
                 <img class="favUnset" src="assets/images/fav-unset.jpg">
             </div>
         </div>
 
         <div class="favItem">
             <div class="favTitle">Solo de guitarra favorito:</div>
-            <div class="favCard">
+            <div class="favCard" onclick="editarSolo();">
                 <img class="favUnset" src="assets/images/fav-unset.jpg">
             </div>
         </div>
 
         <div class="favItem">
             <div class="favTitle">Vocal favorito:</div>
-            <div class="favCard">
+            <div class="favCard" onclick="editarVocal();">
                 <img class="favUnset" src="assets/images/fav-unset.jpg">
             </div>
         </div>
 
         <div class="favItem">
             <div class="favTitle">Sub-genêro favorito:</div>
-            <div class="favCard">
+            <div class="favCard" onclick="editarSubGen();">
                 <img class="favUnset" src="assets/images/fav-unset.jpg">
             </div>
-        </div>
+        </div>  
 
         <div class="favItem">
             <div class="favTitle">Instrumento favorito:</div>
-            <div class="favCard">
+            <div class="favCard" onclick="editarInstrumento();">
                 <img class="favUnset" src="assets/images/fav-unset.jpg">
             </div>
         </div>
 
     </div>
-
-
-    <!-- <footer>
-
-        <ul class="contactIcons">
-            <li>
-                <a href="https://github.com/Gus1331" rel="external" target="_blank"><img
-                        src="assets/images/icon10.png"></a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/gustavooliveiraaa/" rel="external" target="_blank"><img
-                        src="assets/images/icon11.png"></a>
-            </li>
-            <li>
-                <a href="https://www.instagram.com/gus_shineee/" rel="external" target="_blank"><img
-                        src="assets/images/icon12.png"></a>
-            </li>
-            <li>
-                <a href="mailto:gustavo.osouza@sptech.school" rel="external" target="_blank">
-                    <img src="assets/images/icon13.png">
-                </a>
-            </li>
-        </ul>
-
-        <ul class="aboutLinks">
-            <li><a href="index.html#home" rel="prev">HOME</a></li>
-            <li><a href="artigos.html" rel="prev">ARTIGOS</a></li>
-            <li><a href="index.html#section_author" rel="author">SOBRE O AUTHOR</a></li>
-            <li><a href="https://www.sptech.school/index.html" rel="external" target="_blank">SPTECH</a></li>
-        </ul>
-
-    </footer>
-
-    <div class="copyInfo">Copyright &copy; 2023 - &nbsp;<a href="https://github.com/Gus1331" rel="author"
-            target="_blank">Desenvolvido por Gus1331</a></div> -->
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script> <!-- AOS.js script-->
     <script>

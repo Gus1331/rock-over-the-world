@@ -1,9 +1,9 @@
 let usuarioData;
 
 
-function dataLocalStorage(){
+function dataLocalStorage() {
     let usuarioLogado = localStorage.getItem('usuario');
-    
+
     if (usuarioLogado) {
         usuarioData = JSON.parse(usuarioLogado);
         console.log(usuarioData)
@@ -61,7 +61,7 @@ function login() {
 }
 
 function loginOn() {
-        li_login.innerHTML = `
+    li_login.innerHTML = `
         <div class="profile">
         <img src="assets/images/profile/${usuarioData.imgPerfil}.png">
         <p>
@@ -69,10 +69,8 @@ function loginOn() {
             <br>
             <span class="logout" onclick="logout();">Logout</span>
         </p>
-    </div>
+        </div>
         `;
-   
-
 }
 
 function logout() {

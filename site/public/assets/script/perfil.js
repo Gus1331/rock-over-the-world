@@ -55,7 +55,7 @@ function listarFavoritos() { //Pega os favoritos do bd tabela favoritos
         <div class="autor" id="musica_autor"></div>
         <div class="data" id="musica_data"></div>
         <div class="favCardImg" id="musica_foto"></div>`;
-        acessarMusica("249XHhBxBOblTCYStaC27L");
+        acessarMusica(favoritos.musica);
       }
       if (favoritos.album != null) {//ALBUM
         let favCard = document.getElementsByClassName("favCard")[1];
@@ -64,7 +64,7 @@ function listarFavoritos() { //Pega os favoritos do bd tabela favoritos
       <div class="autor" id="album_autor"></div>
       <div class="data" id="album_data"></div>
       <div class="favCardImg" id="album_foto"></div>`;
-      acessarAlbum(favoritos.album);
+        acessarAlbum(favoritos.album);
       }
       if (favoritos.banda != null) { // BANDA
         let favCard = document.getElementsByClassName("favCard")[2];
@@ -113,6 +113,7 @@ function listarFavoritos() { //Pega os favoritos do bd tabela favoritos
         favCard.innerHTML = `
         <div class="nome" id="instrumento_nome"></div>
         <div class="favCardImg" id="instrumento_foto"></div>`;
+        acessarInstrumento(favoritos.instrumento);
       }
     }
     ).catch(function (erro) {
@@ -120,26 +121,178 @@ function listarFavoritos() { //Pega os favoritos do bd tabela favoritos
     })
 }
 
-/* USANDO API DO SPOTIFY */
+/* ONCLICK EDITAR FAVORITOS */
 
-/* EXEMPLO DE FETCH
-    const trackId = '3tPh0SSYadl5wBe8rVqr1v?si=960ad8a52af54d73'; // Substitua com o ID da música que você deseja obter informações
-
-fetch(`https://api.spotify.com/v1/tracks/${trackId}`, {
-  headers: {
-    'Authorization': `Bearer ${accessToken}`
-  }
-})
-  .then(response => response.json())
-  .then(data => {
-    console.log('Informações da música:', data);
-    // Faça algo com os dados da música
-  })
-  .catch(error => {
-    console.error('Ocorreu um erro ao buscar a música:', error);
-  });
+function closeSearch() {
+  search.style.display = `none`;
+  screendivSearch.style.display = `none`;
+  search_musica.style.display = `none`;
+  search_album.style.display = `none`;
+  search_banda.style.display = `none`;
+  search_artista.style.display = `none`;
+  search_solo.style.display = `none`;
+  search_vocal.style.display = `none`;
+  searchResult.innerHTML = ``;
 }
-*/
+
+function editarMusica() {
+  search.style.display = `block`;
+  searchLabel.innerHTML = `Editar musica favorita:`;
+  screendivSearch.style.display = `block`;
+  search_musica.style.display = `block`;
+}
+
+function editarAlbum() {
+  search.style.display = `block`;
+  searchLabel.innerHTML = `Editar album favorito:`;
+  screendivSearch.style.display = `block`;
+  search_album.style.display = `block`;
+}
+
+function editarBanda() {
+  search.style.display = `block`;
+  searchLabel.innerHTML = `Editar banda favorita:`;
+  screendivSearch.style.display = `block`;
+  search_banda.style.display = `block`;
+}
+
+function editarArtista() {
+  search.style.display = `block`;
+  searchLabel.innerHTML = `Editar artista solo favorito:`;
+  screendivSearch.style.display = `block`;
+  search_artista.style.display = `block`;
+}
+
+function editarSolo() {
+  search.style.display = `block`;
+  searchLabel.innerHTML = `Editar solo de guitarra favorito:`;
+  screendivSearch.style.display = `block`;
+  search_solo.style.display = `block`;
+}
+
+function editarVocal() {
+  search.style.display = `block`;
+  searchLabel.innerHTML = `Editar vocal favorito:`;
+  screendivSearch.style.display = `block`;
+  search_vocal.style.display = `block`;
+}
+
+function editarSubGen(){
+  search.style.display = `block`;
+  searchLabel.innerHTML = `Editar Sub-gênero favorito:`;
+  screendivSearch.style.display = `block`;
+  searchResult.innerHTML = `
+  <li onclick="atualizarSubGen(this.innerText)"><strong> Rock 'n' Roll</strong></li>
+  <li onclick="atualizarSubGen(this.innerText)"><strong> Rock Alternativo</strong></li>
+  <li onclick="atualizarSubGen(this.innerText)"><strong> Indie Rock</strong></li>
+  <li onclick="atualizarSubGen(this.innerText)"><strong> Hard Rock</strong></li>
+  <li onclick="atualizarSubGen(this.innerText)"><strong> Heavy Metal</strong></li>
+  <li onclick="atualizarSubGen(this.innerText)"><strong> Punk Rock</strong></li>
+  <li onclick="atualizarSubGen(this.innerText)"><strong> Grunge</strong></li>
+  <li onclick="atualizarSubGen(this.innerText)"><strong> Rock Progressivo</strong></li>
+  `;
+}
+
+function editarInstrumento(){
+  search.style.display = `block`;
+  searchLabel.innerHTML = `Editar Sub-gênero favorito:`;
+  screendivSearch.style.display = `block`;
+  searchResult.innerHTML = `
+  <li onclick="atualizarInstrumento(this.innerText)"><strong> Guitarra</strong></li>
+  <li onclick="atualizarInstrumento(this.innerText)"><strong> Bateria</strong></li>
+  <li onclick="atualizarInstrumento(this.innerText)"><strong> Baixo</strong></li>
+  <li onclick="atualizarInstrumento(this.innerText)"><strong> Violão</strong></li>
+  <li onclick="atualizarInstrumento(this.innerText)"><strong> Violino</strong></li>
+  <li onclick="atualizarInstrumento(this.innerText)"><strong> Violancelo</strong></li>
+  <li onclick="atualizarInstrumento(this.innerText)"><strong> Flauta</strong></li>
+  <li onclick="atualizarInstrumento(this.innerText)"><strong> Orgão</strong></li>
+  <li onclick="atualizarInstrumento(this.innerText)"><strong> Saxofone</strong></li>
+  `;
+}
+
+/* ATUALIZANDO FAVORITOS NO BD ========================================================================*/
+
+function atualizarFavorito(idSpotify, campo) {
+  fetch("/favoritos/atualizar", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      idUsuarioServer: usuarioData.id,
+      idSpotifyServer: idSpotify,
+      campoServer: campo
+    })
+  }).then(resposta => {
+    if (!resposta.ok) {
+      console.log("Problemas ao atualizar favorito");
+    }
+    else {
+      console.log("Favorito atualizado!");
+      closeSearch();
+      listarFavoritos();
+    }
+
+  }).catch(function (erro) {
+    console.log(erro);
+  })
+}
+
+function atualizarSubGen(subGen){
+
+  fetch("/favoritos/atualizarSubGen", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      idUsuarioServer: usuarioData.id,
+      subGenServer: subGen
+    })
+  }).then(resposta => {
+    if (!resposta.ok) {
+      console.log("Problemas ao atualizar subgenero");
+    }
+    else {
+      console.log("subgenero atualizado!");
+      closeSearch();
+      listarFavoritos();
+    }
+
+  }).catch(function (erro) {
+    console.log(erro);
+  })
+}
+
+function atualizarInstrumento(instrumento){
+
+  fetch("/favoritos/atualizarInstrumento", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      idUsuarioServer: usuarioData.id,
+      instrumentoServer: instrumento
+    })
+  }).then(resposta => {
+    if (!resposta.ok) {
+      console.log("Problemas ao atualizar Instrumento");
+    }
+    else {
+      console.log("Instrumento atualizado!");
+      closeSearch();
+      listarFavoritos();
+    }
+
+  }).catch(function (erro) {
+    console.log(erro);
+  })
+}
+
+
+
+/* USANDO API DO SPOTIFY ------------------------------------------------------------------ */
 
 function acessarMusica(trackId) {
   fetch(`https://api.spotify.com/v1/tracks/${trackId}`, {
@@ -151,7 +304,7 @@ function acessarMusica(trackId) {
     .then(data => {
       musica_nome.innerHTML = data.name;
       musica_autor.innerHTML = data.artists[0].name
-      for(let i = 0; i < 4; i++){
+      for (let i = 0; i < 4; i++) {
         let ano = data.album.release_date
         musica_data.innerHTML += ano[i];
       }
@@ -160,7 +313,7 @@ function acessarMusica(trackId) {
     .catch(error => {
       console.error('Ocorreu um erro ao buscar a música:', error);
     });
-} 
+}
 
 function acessarAlbum(albumId) {
   fetch(`https://api.spotify.com/v1/albums/${albumId}`, {
@@ -172,7 +325,7 @@ function acessarAlbum(albumId) {
     .then(data => {
       album_nome.innerHTML = data.name;
       album_autor.innerHTML = data.artists[0].name
-      for(let i = 0; i < 4; i++){
+      for (let i = 0; i < 4; i++) {
         let ano = data.release_date
         album_data.innerHTML += ano[i];
       }
@@ -198,9 +351,9 @@ function acessarBanda(artistId) {
     .catch(error => {
       console.error('Ocorreu um erro ao buscar a banda:', error);
     });
-  }
-  
-  function acessarArtista(artistId) {
+}
+
+function acessarArtista(artistId) {
   fetch(`https://api.spotify.com/v1/artists/${artistId}`, {
     headers: {
       'Authorization': `Bearer ${accessToken}`
@@ -228,7 +381,7 @@ function acessarSolo(trackId) {
     .then(data => {
       solo_nome.innerHTML = data.name;
       solo_autor.innerHTML = data.artists[0].name
-      for(let i = 0; i < 4; i++){
+      for (let i = 0; i < 4; i++) {
         let ano = data.album.release_date
         solo_data.innerHTML += ano[i];
       }
@@ -249,7 +402,7 @@ function acessarVocal(trackId) {
     .then(data => {
       vocal_nome.innerHTML = data.name;
       vocal_autor.innerHTML = data.artists[0].name
-      for(let i = 0; i < 4; i++){
+      for (let i = 0; i < 4; i++) {
         let ano = data.album.release_date
         vocal_data.innerHTML += ano[i];
       }
@@ -261,52 +414,120 @@ function acessarVocal(trackId) {
 }
 
 function acessarSubGen(subGen) {
-  if(subGen == ""){
+  subGen_nome.innerHTML = subGen;
 
-  }else if (subGen == ""){
-
-  }else if (subGen == ""){
-
-  }else if (subGen == ""){
-    
-  }else if (subGen == ""){
-
-  }else if (subGen == ""){
-
-  }else if (subGen == ""){
-
-  }else if (subGen == ""){
-
-  }else if (subGen == ""){
-
-  }else if (subGen == ""){
-
-  }else if (subGen == ""){
-
-  }else if (subGen == ""){
-
+  if (subGen == "Rock 'n' Roll") {
+    subGen_foto.innerHTML = `<img src="assets/images/icon30.jpg">`;
+  } else if (subGen == "Rock Progressivo") {
+    subGen_foto.innerHTML = `<img src="assets/images/icon31.jpg">`;
+  } else if (subGen == "Rock Alternativo") {
+    subGen_foto.innerHTML = `<img src="assets/images/icon32.jpg">`;
+  } else if (subGen == "Hard Rock") {
+    subGen_foto.innerHTML = `<img src="assets/images/icon33.jpg">`;
+  } else if (subGen == "Heavy Metal") {
+    subGen_foto.innerHTML = `<img src="assets/images/icon34.jpg">`;
+  } else if (subGen == "Punk Rock") {
+    subGen_foto.innerHTML = `<img src="assets/images/icon35.jpg">`;
+  } else if (subGen == "Grunge") {
+    subGen_foto.innerHTML = `<img src="assets/images/icon36.jpg">`;
+  } else if (subGen == "Indie Rock") {
+    subGen_foto.innerHTML = `<img src="assets/images/icon37.jpg">`;
   }
 }
-function acessar(instrumento) {
-  if(instrumento == "guitarra"){
 
-  }else if (instrumento == "bateria"){
+function acessarInstrumento(instrumento) {
+  instrumento_nome.innerHTML = instrumento;
 
-  }else if (instrumento == "baixo"){
-
-  }else if (instrumento == "violão"){
-    
-  }else if (instrumento == "piano"){
-
-  }else if (instrumento == "violino"){
-
-  }else if (instrumento == "violancelo"){
-
-  }else if (instrumento == "flauta"){
-
-  }else if (instrumento == "orgão"){
-
-  }else if (instrumento == "saxofone"){
-
+  if (instrumento == "Guitarra") {
+    instrumento_foto.innerHTML = `<img src="assets/images/icon01.png">`;
+  } else if (instrumento == "Bateria") {
+    instrumento_foto.innerHTML = `<img src="assets/images/icon02.png">`;
+  } else if (instrumento == "Baixo") {
+    instrumento_foto.innerHTML = `<img src="assets/images/icon03.png">`;
+  } else if (instrumento == "Violão") {
+    instrumento_foto.innerHTML = `<img src="assets/images/icon05.png">`;
+  } else if (instrumento == "Piano") {
+    instrumento_foto.innerHTML = `<img src="assets/images/icon06.png">`;
+  } else if (instrumento == "Violino") {
+    instrumento_foto.innerHTML = `<img src="assets/images/icon07.png">`;
+  } else if (instrumento == "Violancelo") {
+    instrumento_foto.innerHTML = `<img src="assets/images/icon07.png">`;
+  } else if (instrumento == "Flauta") {
+    instrumento_foto.innerHTML = `<img src="assets/images/icon08.png">`;
+  } else if (instrumento == "Orgão") {
+    instrumento_foto.innerHTML = `<img src="assets/images/icon06.png">`;
+  } else if (instrumento == "Saxofone") {
+    instrumento_foto.innerHTML = `<img src="assets/images/icon08.png">`;
   }
+}
+
+/* PESQUISAR */
+
+function listarMusicas(local) {
+  let searchTerm;
+
+  if (local == "Musica") {
+    searchTerm = search_musica.value;
+  }
+  else if (local == "Solo") {
+    searchTerm = search_solo.value;
+  }
+  else if (local == "Vocal") {
+    searchTerm = search_vocal.value;
+  }
+
+  fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(searchTerm)}&type=track`, {
+    headers: {
+      'Authorization': `Bearer ${accessToken}`
+    }
+  })
+    .then(response => response.json())
+    .then(data => {
+      searchResult.innerHTML = ``;
+      for (let i = 0; i < 10; i++) { // PEGA OS DADOS DENTRO DE UMA ARRAY COM AS MUSICAS PROCURADAS
+        let ano = ``;
+        let exportAno;
+
+        exportAno = data.tracks.items[i].album.release_date;
+        ano += `${exportAno[0]}`;
+        ano += `${exportAno[1]}`;
+        ano += `${exportAno[2]}`;
+        ano += `${exportAno[3]}`;
+
+        searchResult.innerHTML += `<li onclick="atualizarFavorito('${data.tracks.items[i].id}', '${local}')"><strong> ${data.tracks.items[i].name} </strong><br><br> Autor: ${data.tracks.items[i].artists[0].name} <span class="sideRight">${ano}</span></li>`
+      }
+    })
+    .catch(error => {
+      console.error('Ocorreu um erro na pesquisa de músicas:', error);
+    });
+}
+
+function listarArtistas(local) {
+  let searchTerm;
+
+  if (local == "Banda") {
+    searchTerm = search_banda.value;
+  }
+  else if (local == "Artista") {
+    searchTerm = search_artista.value;
+  }
+
+  fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(searchTerm)}&type=artist`, {
+    headers: {
+      'Authorization': `Bearer ${accessToken}`
+    }
+  })
+    .then(response => response.json())
+    .then(data => {
+      searchResult.innerHTML = ``;
+
+      for (let i = 0; i < 10; i++) { // PEGA OS DADOS DENTRO DE UMA ARRAY COM OS ARTISTAS PROCURADOS
+
+        searchResult.innerHTML += `<li onclick="atualizarFavorito('${data.artists.items[i].id}', '${local}')"><strong> ${data.artists.items[i].name} </strong><br><br> Gênero: ${data.artists.items[i].genres[0]} </li>`
+
+      }
+    })
+    .catch(error => {
+      console.error('Ocorreu um erro na pesquisa de músicas:', error);
+    });
 }
