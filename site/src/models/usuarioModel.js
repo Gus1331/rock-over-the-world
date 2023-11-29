@@ -38,7 +38,7 @@ function requisitarDados(apelido, senha){
     console.log("requisitando dados...");
 
     var instrucao = `
-    SELECT idUsuario, nome, sexo, apelido, dtNasc, DATE_FORMAT(dtConta, "%d/%m/%Y") AS dtConta, email, idUsuario, imgPerfil FROM usuario
+    SELECT idUsuario as id, nome, sexo, apelido, dtNasc, DATE_FORMAT(dtConta, "%d/%m/%Y") AS dtConta, email, idUsuario, imgPerfil FROM usuario
     WHERE apelido = '${apelido}' AND senha = '${senha}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -55,10 +55,30 @@ function conectarFavoritos(idUsuario){
     return database.executar(instrucao);
 }
 
+function atualizarFotoPerfil(idUsuario, fotoPerfil){
+    
+    var instrucao = ``
+    if(fotoPerfil < 10){
+        instrucao = `
+        UPDATE usuario SET  imgPerfil = "profile-img0${fotoPerfil}" WHERE idUsuario = ${idUsuario};
+        `;
+    }
+    else{
+        instrucao = `
+        UPDATE usuario SET  imgPerfil = "profile-img${fotoPerfil}" WHERE idUsuario = ${idUsuario};
+        `;
+
+    }
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+
+}
+
 module.exports = {
     autenticar,
     autenticarApelido,
     requisitarDados,
     conectarFavoritos,
-    cadastrar
+    atualizarFotoPerfil,
+    cadastrar,
 };

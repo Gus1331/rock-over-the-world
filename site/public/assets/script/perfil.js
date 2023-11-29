@@ -19,16 +19,31 @@ function goHome() {
 }
 
 function aplicarDados() { // Coloca os dados do usuario na esquerda
-  console.log(usuarioData)
   h1_apelido_usuario.innerText = usuarioData.apelido;
   p_nome_usuario.innerText = usuarioData.nome;
   span_dtConta_usuario.innerText = usuarioData.dtConta;
-  img_imgPerfil_usuario.src = `assets/images/profile/${usuarioData.imgPerfil}.png`;
+  img_imgPerfil_usuario.src = `assets/images/profile/${usuarioData.imgPerfil}.jpg`;
+}
+
+function editProfile(){
+  searchLabel.innerHTML = `Editar foto de perfil:`;
+  search.style.display = `block`;
+  screendivSearch.style.display = `block`;
+  searchResult.innerHTML= ``;
+  for(let i = 1; i < 19; i++){
+    if(i < 10){
+      searchResult.innerHTML += `<img onclick="updateProfileImg(${i})" class="profileImg" src="assets/images/profile/profile-img0${i}.jpg">`;
+    }
+    else{
+      searchResult.innerHTML += `<img onclick="updateProfileImg(${i})" class="profileImg" src="assets/images/profile/profile-img${i}.jpg">`;
+
+    }
+  }
 }
 
 function listarFavoritos() { //Pega os favoritos do bd tabela favoritos
 
-  fetch(`/favoritos/listar/${usuarioData.id}`, {
+  fetch(`/favoritos/listar/${usuarioData.id }`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json"
@@ -41,7 +56,7 @@ function listarFavoritos() { //Pega os favoritos do bd tabela favoritos
   })
     .then(data => {
       console.log("Fav :", data);
-
+      
       favoritos = data[0];
 
       /* VERIFICAÇÃO DOS FAVORITOS ------------------------------------------- */
@@ -219,7 +234,7 @@ function atualizarFavorito(idSpotify, campo) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      idUsuarioServer: usuarioData.id,
+      idUsuarioServer: usuarioData.id ,
       idSpotifyServer: idSpotify,
       campoServer: campo
     })
@@ -246,7 +261,7 @@ function atualizarSubGen(subGen){
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      idUsuarioServer: usuarioData.id,
+      idUsuarioServer: usuarioData.id ,
       subGenServer: subGen
     })
   }).then(resposta => {
@@ -272,7 +287,7 @@ function atualizarInstrumento(instrumento){
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      idUsuarioServer: usuarioData.id,
+      idUsuarioServer: usuarioData.id ,
       instrumentoServer: instrumento
     })
   }).then(resposta => {
@@ -288,6 +303,43 @@ function atualizarInstrumento(instrumento){
   }).catch(function (erro) {
     console.log(erro);
   })
+}
+
+
+function updateProfileImg (id){
+  fetch("/usuarios/atualizarFotoPerfil", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      idUsuarioServer: usuarioData.id ,
+      profileImgServer: id
+    })
+  }).then(resposta => {
+    if (!resposta.ok) {
+      console.log("Problemas ao atualizar foto de perfil!");
+    }
+    else {
+      console.log("Foto atualizada!");
+      closeSearch();
+      let localData = usuarioData;
+      
+      if(id < 10)localData.imgPerfil = `profile-img0${id}`;
+      else localData.imgPerfil = `profile-img${id}`;
+
+      console.log(localData)
+
+      localStorage.clear();
+      localStorage.setItem('usuario', JSON.stringify(localData));
+
+      aplicarDados();
+    }
+  
+  }).catch(function (erro) {
+    console.log(erro);
+  })
+
 }
 
 
@@ -495,6 +547,35 @@ function listarMusicas(local) {
         ano += `${exportAno[3]}`;
 
         searchResult.innerHTML += `<li onclick="atualizarFavorito('${data.tracks.items[i].id}', '${local}')"><strong> ${data.tracks.items[i].name} </strong><br><br> Autor: ${data.tracks.items[i].artists[0].name} <span class="sideRight">${ano}</span></li>`
+      }
+    })
+    .catch(error => {
+      console.error('Ocorreu um erro na pesquisa de músicas:', error);
+    });
+}
+
+function listarAlbums() {
+  let searchTerm = search_album.value;
+
+  fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(searchTerm)}&type=album`, {
+    headers: {
+      'Authorization': `Bearer ${accessToken}`
+    }
+  })
+    .then(response => response.json())
+    .then(data => {
+      searchResult.innerHTML = ``;
+      for (let i = 0; i < 10; i++) { // PEGA OS DADOS DENTRO DE UMA ARRAY COM AS MUSICAS PROCURADAS
+        let ano = ``;
+        let exportAno;
+        
+        exportAno = data.albums.items[i].release_date;
+        ano += `${exportAno[0]}`;
+        ano += `${exportAno[1]}`;
+        ano += `${exportAno[2]}`;
+        ano += `${exportAno[3]}`;
+        
+        searchResult.innerHTML += `<li onclick="atualizarFavorito('${data.albums.items[i].id}', 'album')"><strong> ${data.albums.items[i].name} </strong><br><br> Autor: ${data.albums.items[i].artists[0].name} <span class="sideRight">${ano}</span></li>`
       }
     })
     .catch(error => {

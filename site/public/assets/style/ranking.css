@@ -1,0 +1,175 @@
+/* RANKING */
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.banner>video {
+    position: absolute;
+    top: -70px;
+    width: 100%;
+}
+
+.banner>h1 {
+    font-family: var(--title02);
+    color: var(--color00);
+    position: absolute;
+
+    left: 80px;
+    bottom: 30px;
+    font-size: 3.6em;
+}
+
+.banner .gradient {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 36px;
+    background-image: linear-gradient(to top, var(--color11), rgba(1, 1, 27, 0));
+}
+
+/* MAIN */
+
+main {
+    padding: 20px 10%;
+    margin-bottom: 190px;
+}
+
+main nav {
+    display: flex;
+    font-family: var(--title02);
+    color: var(--color00);
+    font-size: 1.4em;
+    padding: 5px;
+    margin: 0 auto;
+    width: 350px;
+    justify-content: space-between;
+}
+
+main>nav>div {
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#div_title_musicas {
+    /* mudar no javascript quando necessário*/
+    border: 1px solid var(--color00);
+}
+
+/* Musicas */
+
+#results ul>li {
+    color: var(--color00);
+    position: relative;
+    width: 700px;
+    height: 120px;
+    margin: 12px auto;
+    border-radius: 10px;
+    border: 1px solid var(--color00);
+    overflow: hidden;
+}
+
+#results ul  li:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+#results ul>li.first {
+    transform: scaleX(1.1);
+}
+
+#results ul>li .firstPosition {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    font-size: 3em;
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute;
+    width: 130px;
+    height: 100%;
+    background-color: var(--color13);
+}
+
+#results ul>li .firstImgPosition {
+    position: absolute;
+    top: 15px;
+    width: 80px;
+    left: 45px;
+}
+
+#results ul>li .firstName {
+    position: absolute;
+    right: 140px;
+    top: 15px;
+    font-size: 1.8em;
+    width: 400px;
+}
+
+#results ul>li .firstAuthor {
+    position: absolute;
+    right: 40px;
+    bottom: 10px;
+    font-size: 1.4em;
+    width: 350px;
+}
+#results ul>li .firstImg{
+    position: absolute;
+    width: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    border-radius: 10px;
+}
+
+#results ul>li .likes{
+    position: absolute;
+    width: 80px;
+    bottom: 0;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.39);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+span.material-symbols-outlined{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+
+#results ul>li .position {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    font-size: 2em;
+    font-family: 'Times New Roman', Times, serif;
+    height: 100%;
+}
+
+#results ul>li .name {
+    position: absolute;
+    right: 60px;
+    top: 15px;
+    font-size: 1.4em;
+    width: 400px;
+}
+
+#results ul>li .author {
+    position: absolute;
+    right: 40px;
+    bottom: 10px;
+    font-size: 1em;
+    width: 350px;
+}
+#results ul>li .img{
+    position: absolute;
+    width: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    border-radius: 10px;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html> <!-- Desenvolvido por Gus1331 -->
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Over the Word - Ranking </title>
+    <link rel="shortcut icon" href="assets/images/favicon.png"> <!-- FAVICON -->
+
+    <link rel="stylesheet" href="assets/style/style.css"> <!-- BODY, HEADER, FOOTER -->
+    <link rel="stylesheet" href="assets/style/ranking.css"> <!-- RANKING -->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS library (animações on scroll) -->
+
+    <script defer src="assets/script/script.js"></script> <!-- FUNÇÕES PADRÕES, HEADER, FOOTER -->
+    <script defer src="assets/script/ranking.js"></script> <!-- FUNÇÕES RANKING -->
+
+    <script defer src="assets/script/spotify.js"></script> <!-- AUTORIZAÇÃO PRA API -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <!-- IMPORT ICONE DE CURTIDA GOOGLE FONTS -->
+</head>
+
+<body onload="listaCurtidaUsuario();">
+    <div id="loginPage"></div>
+    <div id="screendiv" onclick="closeLogin();">
+    </div>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <a href="index.html" rel="prev">
+            <div class="logoHeader">
+                <img src="assets/images/logo01.gif" alt="Logo">
+                HOME
+            </div>
+        </a>
+
+        <nav>
+            <ul>
+                <li class="navOption"><a href="artigos.html" rel="prev">Artigos</a></li>
+                <li class="navOption"><a href="ods-onu.html" rel="prev">ODS ONU</a></li>
+                <li class="navOption"><a href="hall-da-fama.html" rel="prev">Hall da fama</a></li>
+                <li class="navOption">Ranking</li>
+                <li class="navOption" id="li_login">
+                    <button onclick="openLogin();">LOGIN</button>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <div class="banner">
+        <video src="assets/videos/banner-ranking.mp4" muted autoplay loop></video>
+        <div class="gradient"></div>
+        <h1>Ranking</h1>
+    </div>
+
+    <main>
+
+        <nav>
+            <div id="div_title_musicas">Ranking</div>
+            <div id="div_title_votar">Votar</div>
+        </nav>
+
+        <div id="results">
+            <ul>
+                <li class="first"><span class="firstPosition">1</span><img src="assets/images/first.gif"
+                        class="firstImgPosition"><span class="firstName">Seek & destroy</span><span class="firstAuthor">Lorem ipsum dolor sit amet cons</span>
+                        <img src="assets/images/favicon.png" class="firstImg">
+                    <span class="likes">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">
+                            thumb_up
+                            </span> &nbsp; 999
+                    </span></li>
+                <li><span class="position">1</span><span class="name">Seek & destroy</span><span class="author">Lorem ipsum dolor sit amet cons</span>
+                        <img src="assets/images/favicon.png" class="img">
+                    <span class="likes">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">
+                            thumb_up
+                            </span> &nbsp; 888
+                    </span></li>
+                <li><span class="position">1</span><span class="name">Seek & destroy</span><span class="author">Lorem ipsum dolor sit amet cons</span>
+                        <img src="assets/images/favicon.png" class="img">
+                    <span class="likes">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">
+                            thumb_up
+                            </span> &nbsp; 888
+                    </span></li>
+                <li><span class="position">1</span><span class="name">Seek & destroy</span><span class="author">Lorem ipsum dolor sit amet cons</span>
+                        <img src="assets/images/favicon.png" class="img">
+                    <span class="likes">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">
+                            thumb_up
+                            </span> &nbsp; 888
+                    </span></li>
+
+            </ul>
+        </div>
+
+    </main>
+
+
+
+    <footer>
+
+        <ul class="contactIcons">
+            <li>
+                <a href="https://github.com/Gus1331" rel="external" target="_blank"><img
+                        src="assets/images/icon10.png"></a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/gustavooliveiraaa/" rel="external" target="_blank"><img
+                        src="assets/images/icon11.png"></a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/gus_shineee/" rel="external" target="_blank"><img
+                        src="assets/images/icon12.png"></a>
+            </li>
+            <li>
+                <a href="mailto:gustavo.osouza@sptech.school" rel="external" target="_blank">
+                    <img src="assets/images/icon13.png">
+                </a>
+            </li>
+        </ul>
+
+        <ul class="aboutLinks">
+            <li><a href="index.html#home" rel="prev">HOME</a></li>
+            <li><a href="artigos.html" rel="prev">ARTIGOS</a></li>
+            <li><a href="index.html#section_author" rel="author">SOBRE O AUTHOR</a></li>
+            <li><a href="https://www.sptech.school/index.html" rel="external" target="_blank">SPTECH</a></li>
+        </ul>
+
+    </footer>
+
+    <div class="copyInfo">Copyright &copy; 2023 - &nbsp;<a href="https://github.com/Gus1331" rel="author"
+            target="_blank">Desenvolvido por Gus1331</a></div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script> <!-- AOS.js script-->
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>

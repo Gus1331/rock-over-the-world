@@ -104,7 +104,7 @@ function cadastrar(req, res) {
         res.status(400).send("Seu apelido está undefined!");
     } else if (dtNasc == undefined) {
         res.status(400).send("Sua dtNasc está undefined!");
-    } else if (sexo == undefined) {
+    } else if (sexo === undefined) {
         res.status(400).send("Seu sexo está undefined!");
     } else {
 
@@ -166,10 +166,30 @@ function conectarFavoritos(req, res) {
         );
 }
 
+function atualizarFotoPerfil (req, res){
+    var idUsuario = req.body.idUsuarioServer;
+    var profileImg = req.body.profileImgServer;
+
+    usuarioModel.atualizarFotoPerfil(idUsuario, profileImg)
+        .then(resultado => {
+            res.json(resultado);
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao pegar id de ft de perfil! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     autenticar,
     autenticarApelido,
     cadastrar,
     requisitarDados,
-    conectarFavoritos
+    atualizarFotoPerfil,
+    conectarFavoritos,
 }

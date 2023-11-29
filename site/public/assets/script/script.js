@@ -61,16 +61,18 @@ function login() {
 }
 
 function loginOn() {
-    li_login.innerHTML = `
-        <div class="profile">
-        <img src="assets/images/profile/${usuarioData.imgPerfil}.png">
-        <p>
-            <span class="profilename" id="span_userName">${usuarioData.apelido}</span>
-            <br>
-            <span class="logout" onclick="logout();">Logout</span>
-        </p>
-        </div>
-        `;
+    try{
+        li_login.innerHTML = `
+            <div class="profile">
+            <a href="perfil.html"><img src="assets/images/profile/${usuarioData.imgPerfil}.jpg"></a>
+            <p>
+            <a href="perfil.html"><span class="profilename" id="span_userName">${usuarioData.apelido}</span></a>
+                <br>
+                <span class="logout" onclick="logout();">Logout</span>
+            </p>
+            </div>
+            `;
+    }catch{}
 }
 
 function logout() {

@@ -3,6 +3,10 @@ var router = express.Router();
 
 var usuarioController = require("../controllers/usuarioController");
 
+router.post("/atualizarFotoPerfil", function (req, res) {
+    console.log("ok")
+    usuarioController.atualizarFotoPerfil(req, res);
+})
 
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);

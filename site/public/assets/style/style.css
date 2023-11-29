@@ -146,7 +146,7 @@ header nav .navOption {
     text-shadow: none;
 }
 
-.navOption .profile > img{
+.navOption .profile a > img{
     border: 2px solid var(--color10);
     border-radius: 5px;
     width: 60px;

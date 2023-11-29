@@ -34,7 +34,8 @@ CREATE TABLE favoritos (
     
 CREATE TABLE musica (
 	idMusica INT PRIMARY KEY AUTO_INCREMENT,
-    idApiSpotify VARCHAR(45));
+    idApiSpotify VARCHAR(45))AUTO_INCREMENT = 1000000;
+    
     
 CREATE TABLE curtida (
 	fkMusica INT,
@@ -76,7 +77,7 @@ SELECT * FROM usuario WHERE apelido = 'Shineee' AND senha = 'onepieceisreal';
 SELECT * FROM usuario JOIN favoritos ON fkUsuario = idUsuario;
     
 SELECT * FROM regiao;
-SELECT * FROM USUARIO; 
+SELECT * FROM USUARIO;
 SELECT * FROM favoritos;
 DESCRIBE usuario;
 TRUNCATE table usuario;
@@ -91,6 +92,44 @@ SELECT DATE_FORMAT(dtConta, "%d/%m/%Y") AS dtConta FROM usuario;
 
 UPDATE usuario SET  imgPerfil = "profile-img03" WHERE apelido = "KevinSampaio";
 
+UPDATE favoritos SET idFav = 20004 WHERE fkUsuario = 10004;
+
+ALTER TABLE usuario MODIFY COLUMN sexo VARCHAR(4);
+
+INSERT INTO usuario(nome, apelido, sexo, dtNasc, email, senha, fkRegiao) VALUE 
+    ('anonimous', 'ANONIMO', 'null', '2000-01-01', 'anonimous@anom.ano', '1234567*', 102);
 
 SELECT musica , album, banda, artista, solo, vocal, subGen, instrumento FROM usuario JOIN favoritos ON fkUsuario = idUsuario WHERE idUsuario = 10001;	
 UPDATE favoritos SET vocal = "5LyRtsQLhcXmy50VXhQXXS" WHERE idFav = 20001;
+
+
+INSERT INTO musica VALUES
+	(NULL, '7bhfCl1a1InaSy8NOWVswk'),
+    (NULL, '03zRY58mcXQvvwu9Iyy4a4');
+    
+SELECT * FROM usuario;
+SELECT * FROM musica;
+    
+INSERT INTO curtida(fkMusica, fkUsuario) VALUES
+(1000000, 10000),
+(1000000, 10001),
+(1000000, 10002),
+(1000000, 10005),
+(1000000, 10004),
+(1000001, 10000),
+(1000001, 10001),
+(1000001, 10002),
+(1000001, 10004);
+
+SELECT COUNT(*) as 'total de curtidas' FROM curtida;
+
+-- select pra listar ranking
+SELECT idApiSpotify as idMusica, COUNT(*) AS likes FROM curtida JOIN musica ON fkMusica = idMusica GROUP BY fkMusica;
+
+SELECT idApiSpotify as idMusica FROM curtida JOIN musica ON fkMusica = idMusica WHERE fkUsuario = 10000;
+
+INSERT INTO musica VALUES
+	(NULL, '4IsQ9C6xrEiC3e1c1T0eim');
+
+INSERT INTO curtida(fkMusica, fkUsuario) VALUES
+	(1000002, 10005);

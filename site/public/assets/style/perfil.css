@@ -36,6 +36,7 @@
     border: 3px solid var(--color00);
     height: 200px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 #img_imgPerfil_usuario {
@@ -54,7 +55,13 @@
     background-size: cover;
     background-color: rgba(255, 255, 255, 0.301);
 }
-
+#searchResult img.profileImg{
+    display: inline-block;
+    width: 174px;
+    border: 1px solid var(--color00);
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 .profileContent h1 {
     color: var(--color00);
