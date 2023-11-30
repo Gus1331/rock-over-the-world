@@ -12,4 +12,17 @@ router.get("/listarRanking/", function (req, res) {
     curtidasController.listarRanking(req, res);
 });
 
+router.get("/listaMusicasCadastradas/", function (req, res) {
+    curtidasController.listaMusicasCadastradas(req, res);
+});
+
+router.post("/cadastrarMusica/", function (req, res) {
+    curtidasController.cadastrarMusica(req, res);
+});
+
+router.post("/curtirMusica/", function (req, res) {
+    console.log("ok")
+    curtidasController.curtirMusica(req, res);
+});
+
 module.exports = router;

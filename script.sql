@@ -133,3 +133,5 @@ INSERT INTO musica VALUES
 
 INSERT INTO curtida(fkMusica, fkUsuario) VALUES
 	(1000002, 10005);
+    
+SELECT idApiSpotify AS idMusica FROM musica;

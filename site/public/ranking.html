@@ -17,11 +17,47 @@
 
     <script defer src="assets/script/spotify.js"></script> <!-- AUTORIZAÇÃO PRA API -->
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <!-- IMPORT ICONE DE CURTIDA GOOGLE FONTS -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- IMPORT ICONE DE CURTIDA GOOGLE FONTS -->
 </head>
 
-<body onload="listaCurtidaUsuario();">
-    <div id="loginPage"></div>
+<body onload="listaMusicasCadastradas();listaCurtidaUsuario();">
+
+    <!-- LOGIN PAGE -->
+    <div id="loginPage">
+        <div class="topBarLogin"></div>
+        <img src="assets/images/logo01.gif">
+        <div class="loginFields">
+            <div class="loginField">
+                <div class="loginFieldIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+                        <path
+                            d="M480-497q-75 0-126.5-51.5T302-675q0-75 51.5-126T480-852q75 0 126.5 51T658-675q0 75-51.5 126.5T480-497ZM158-141v-132q0-32.302 17.695-60.599Q193.391-361.896 224-380q58-33 123.459-51T480-449q69 0 134.5 17.5T736-381q30.609 16.958 48.305 45.479Q802-307 802-273.055V-141H158Z" />
+                    </svg>
+                </div>
+                <input type="email" id="input_login_userName">
+            </div>
+            <div class="loginField">
+                <div class="loginFieldIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+                        <path
+                            d="M263.717-96Q234-96 213-117.15T192-168v-384q0-29.7 21.15-50.85Q234.3-624 264-624h24v-96q0-79.68 56.226-135.84t136-56.16Q560-912 616-855.84T672-720v96h24q29.7 0 50.85 21.15Q768-581.7 768-552v384q0 29.7-21.162 50.85Q725.676-96 695.96-96H263.717Zm216.495-192Q510-288 531-309.212q21-21.213 21-51Q552-390 530.788-411q-21.213-21-51-21Q450-432 429-410.788q-21 21.213-21 51Q408-330 429.212-309q21.213 21 51 21ZM360-624h240v-96q0-50-35-85t-85-35q-50 0-85 35t-35 85v96Z" />
+                    </svg>
+                </div>
+                <input type="text" id="input_login_password">
+                <div class="passwordDisplay loginFieldIcon  " onclick="showPasswordDisplay(true);">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+                        <path
+                            d="M480-312q70 0 119-49t49-119q0-70-49-119t-119-49q-70 0-119 49t-49 119q0 70 49 119t119 49Zm0-72q-40 0-68-28t-28-68q0-40 28-68t68-28q40 0 68 28t28 68q0 40-28 68t-68 28Zm0 192q-142.596 0-259.798-78.5T48-480q55-131 172.202-209.5T480-768q142.596 0 259.798 78.5T912-480q-55 131-172.202 209.5T480-192Z" />
+                    </svg>
+                </div>
+            </div>
+            <p>Não tem uma conta? &nbsp; <a href="cadastro.html">cadastre-se</a>.</p>
+            <button class="loginBtn" onclick="login();">Entrar</button>
+        </div>
+    </div>
     <div id="screendiv" onclick="closeLogin();">
     </div>
 
@@ -59,42 +95,12 @@
     <main>
 
         <nav>
-            <div id="div_title_musicas">Ranking</div>
-            <div id="div_title_votar">Votar</div>
+            <div onclick="ativarRanking();" id="div_title_musicas">Ranking</div>
+            <div onclick="ativarVotar();" id="div_title_votar">Votar</div>
         </nav>
 
         <div id="results">
             <ul>
-                <li class="first"><span class="firstPosition">1</span><img src="assets/images/first.gif"
-                        class="firstImgPosition"><span class="firstName">Seek & destroy</span><span class="firstAuthor">Lorem ipsum dolor sit amet cons</span>
-                        <img src="assets/images/favicon.png" class="firstImg">
-                    <span class="likes">
-                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">
-                            thumb_up
-                            </span> &nbsp; 999
-                    </span></li>
-                <li><span class="position">1</span><span class="name">Seek & destroy</span><span class="author">Lorem ipsum dolor sit amet cons</span>
-                        <img src="assets/images/favicon.png" class="img">
-                    <span class="likes">
-                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">
-                            thumb_up
-                            </span> &nbsp; 888
-                    </span></li>
-                <li><span class="position">1</span><span class="name">Seek & destroy</span><span class="author">Lorem ipsum dolor sit amet cons</span>
-                        <img src="assets/images/favicon.png" class="img">
-                    <span class="likes">
-                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">
-                            thumb_up
-                            </span> &nbsp; 888
-                    </span></li>
-                <li><span class="position">1</span><span class="name">Seek & destroy</span><span class="author">Lorem ipsum dolor sit amet cons</span>
-                        <img src="assets/images/favicon.png" class="img">
-                    <span class="likes">
-                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">
-                            thumb_up
-                            </span> &nbsp; 888
-                    </span></li>
-
             </ul>
         </div>
 

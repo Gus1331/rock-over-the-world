@@ -205,12 +205,13 @@ function editarSubGen(){
   <li onclick="atualizarSubGen(this.innerText)"><strong> Punk Rock</strong></li>
   <li onclick="atualizarSubGen(this.innerText)"><strong> Grunge</strong></li>
   <li onclick="atualizarSubGen(this.innerText)"><strong> Rock Progressivo</strong></li>
+  <li onclick="atualizarSubGen(this.innerText)"><strong> Post Rock</strong></li>
   `;
 }
 
 function editarInstrumento(){
   search.style.display = `block`;
-  searchLabel.innerHTML = `Editar Sub-gênero favorito:`;
+  searchLabel.innerHTML = `Editar Instrumento favorito:`;
   screendivSearch.style.display = `block`;
   searchResult.innerHTML = `
   <li onclick="atualizarInstrumento(this.innerText)"><strong> Guitarra</strong></li>
@@ -218,7 +219,7 @@ function editarInstrumento(){
   <li onclick="atualizarInstrumento(this.innerText)"><strong> Baixo</strong></li>
   <li onclick="atualizarInstrumento(this.innerText)"><strong> Violão</strong></li>
   <li onclick="atualizarInstrumento(this.innerText)"><strong> Violino</strong></li>
-  <li onclick="atualizarInstrumento(this.innerText)"><strong> Violancelo</strong></li>
+  <li onclick="atualizarInstrumento(this.innerText)"><strong> Violoncelo</strong></li>
   <li onclick="atualizarInstrumento(this.innerText)"><strong> Flauta</strong></li>
   <li onclick="atualizarInstrumento(this.innerText)"><strong> Orgão</strong></li>
   <li onclick="atualizarInstrumento(this.innerText)"><strong> Saxofone</strong></li>
