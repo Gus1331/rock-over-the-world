@@ -1,0 +1,89 @@
+.bannerHallOfFame {
+    width: 100%;
+    height: 430px;
+    background-image: url(../images/background-static04.png);
+    position: relative;
+}
+
+.bannerHallOfFame>h1 {
+    color: var(--color00);
+    font-family: var(--title02);
+    position: absolute;
+    bottom: 30px;
+    left: 130px;
+    font-size: 4em;
+    text-shadow: 0 0 3px var(--color01);
+}
+
+.headerBc {
+    background-color: var(--color11);
+    height: 90px;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid var(--color00);
+    z-index: 2;
+}
+
+main {
+    margin: -90px 0 200px 0;
+}
+
+.legend {
+    width: 85%;
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color00);
+    font-size: 1.4em;
+    position: relative;
+}
+
+.legend>img {
+    width: 579px;
+}
+
+.legendDescriptionL p,
+.legendDescriptionR p {
+    margin-bottom: 30px;
+}
+
+.legendDescriptionR,
+.legendDescriptionL {
+    width: 75%;
+}
+
+.legendDescriptionL {
+    padding: 30px 60px 0 0;
+}
+
+.legendDescriptionR {
+    padding: 30px 0 0 60px;
+}
+
+.legendDescriptionL ul li ,
+.legendDescriptionR ul li 
+{
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+#legendCrown{
+    width: 160px;
+    position: absolute;
+    left: 200px;
+    top: -110px;
+    animation: theCrown 2500ms linear infinite;
+}
+
+@keyframes theCrown {
+    0%{
+        transform: rotate(5deg);
+    }
+    50%{
+        transform: rotate(-25deg);
+    }
+    100%{
+        transform: rotate(5deg);
+    }
+}

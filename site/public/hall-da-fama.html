@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="assets/images/favicon.png"> <!-- FAVICON -->
 
     <link rel="stylesheet" href="assets/style/style.css"> <!-- BODY, HEADER, FOOTER -->
-    <link rel="stylesheet" href="assets/style/home.css"> <!-- MAIN (HOMEPAGE) -->
+    <link rel="stylesheet" href="assets/style/hall-da-fama.css"> <!--  HALL DA FAMA -->
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS library (animações on scroll) -->
 
@@ -16,9 +16,43 @@
 </head>
 
 <body>
-    <div id="loginPage"></div>
+    <div id="loginPage">
+        <div class="topBarLogin"></div>
+        <img src="assets/images/logo01.gif">
+        <div class="loginFields">
+            <div class="loginField">
+                <div class="loginFieldIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+                        <path
+                            d="M480-497q-75 0-126.5-51.5T302-675q0-75 51.5-126T480-852q75 0 126.5 51T658-675q0 75-51.5 126.5T480-497ZM158-141v-132q0-32.302 17.695-60.599Q193.391-361.896 224-380q58-33 123.459-51T480-449q69 0 134.5 17.5T736-381q30.609 16.958 48.305 45.479Q802-307 802-273.055V-141H158Z" />
+                    </svg>
+                </div>
+                <input type="email" id="input_login_userName">
+            </div>
+            <div class="loginField">
+                <div class="loginFieldIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+                        <path
+                            d="M263.717-96Q234-96 213-117.15T192-168v-384q0-29.7 21.15-50.85Q234.3-624 264-624h24v-96q0-79.68 56.226-135.84t136-56.16Q560-912 616-855.84T672-720v96h24q29.7 0 50.85 21.15Q768-581.7 768-552v384q0 29.7-21.162 50.85Q725.676-96 695.96-96H263.717Zm216.495-192Q510-288 531-309.212q21-21.213 21-51Q552-390 530.788-411q-21.213-21-51-21Q450-432 429-410.788q-21 21.213-21 51Q408-330 429.212-309q21.213 21 51 21ZM360-624h240v-96q0-50-35-85t-85-35q-50 0-85 35t-35 85v96Z" />
+                    </svg>
+                </div>
+                <input type="password" id="input_login_password">
+                <div class="passwordDisplay loginFieldIcon  " onclick="showPasswordDisplay();">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+                        <path
+                            d="M480-312q70 0 119-49t49-119q0-70-49-119t-119-49q-70 0-119 49t-49 119q0 70 49 119t119 49Zm0-72q-40 0-68-28t-28-68q0-40 28-68t68-28q40 0 68 28t28 68q0 40-28 68t-68 28Zm0 192q-142.596 0-259.798-78.5T48-480q55-131 172.202-209.5T480-768q142.596 0 259.798 78.5T912-480q-55 131-172.202 209.5T480-192Z" />
+                    </svg>
+                </div>
+            </div>
+            <p>Não tem uma conta? &nbsp; <a href="cadastro.html">cadastre-se</a>.</p>
+            <button class="loginBtn" onclick="login();">Entrar</button>
+        </div>
+    </div>
     <div id="screendiv" onclick="closeLogin();">
     </div>
+
+
 
     <!-- HEADER -->
 
@@ -44,6 +78,230 @@
 
     </header>
 
+    <!-- MAIN + BANNER -------------------------------------------------------------------------- -->
+
+    <div class="bannerHallOfFame">
+        <h1>Hall da fama</h1>
+    </div>
+
+    <div data-aos="fade-down" data-aos-anchor-placement="top-top" class="headerBc"></div>
+
+    <main>
+
+
+        <div class="legend">
+            <img src="assets/images/crown-icon.png" id="legendCrown">
+            <img src="assets/images/legend01.png" alt="Roseta Atkins Tharpe Morrison">
+            <div class="legendDescriptionR" data-aos="fade-left">
+                <p>
+                    Nos anos de 1920, uma cantora, compositora e guitarrista negra chamada Rosetta Atkins Tharpe
+                    Morrison alcançou a popularidade com suas icônicas músicas gospels caracterizados por suas letras e
+                    toques animados com a guitarra elétrica. Com isso, influenciou toma uma geração que estava por vir.
+                    A misturas de blues (gênero musical da cultura afro-americana) com gospels (músicas espirituais) foi
+                    tão bem aceita que inspirou grandes artistas que vieram a seguir.
+                </p>
+                <ul class="legendDate">
+                    <li>Nascimento: 20 de março de 1915</li>
+                    <li>Morte: 9 de agosto de 1977</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legendDescriptionL" data-aos="fade-right">
+                <p>
+                    Elvis Aaron Presley, filho de Vernon e Gladys Presley, Elvis teve uma infância humilde, mas desde
+                    cedo mostrou talento para a música. Aos 10 anos, ele começou a cantar em igrejas e shows locais.
+                    <br>
+                    Em 1954, Elvis foi descoberto pelo produtor Sam Phillips, da Sun Records. Phillips viu em Elvis um
+                    talento único, capaz de combinar elementos do gospel, do blues e do rhythm and blues em uma nova
+                    forma de música: o rockabilly.
+                    A música de Elvis era caracterizada por seu ritmo forte, sua voz poderosa e suas performances
+                    carismáticas. Ele foi um dos pioneiros do rock and roll, e seu estilo influenciou gerações de
+                    músicos.<br>
+                    Elvis Presley é considerado um dos artistas mais importantes da história da música. Ele é conhecido
+                    como o "Rei do Rock and Roll" e seu legado continua a inspirar gerações de fãs.
+                </p>
+                <ul class="legendDate">
+                    <li>Nascimento: 8 de janeiro de 1935</li>
+                    <li>Morte: 16 de agosto de 1977</li>
+                </ul>
+            </div>
+            <img src="assets/images/legend02.png" alt="Elvis Presley">
+        </div>
+
+        <div class="legend">
+            <img src="assets/images/legend03.png" alt="Chuck Berry">
+            <div class="legendDescriptionR" data-aos="fade-left">
+                <p>
+                    Charles Edward Anderson Berry, mais conhecido como Chuck Berry, foi um cantor, compositor e
+                    guitarrista estadunidense, um dos pioneiros do gênero rock and roll. <br>
+                    Berry nasceu em St. Louis, Missouri, em 18 de outubro de 1926. Ele começou a tocar guitarra aos 13
+                    anos de idade, e logo se tornou um dos músicos mais populares de St. Louis.
+                    Berry continuou a lançar sucessos nos anos seguintes, como "Roll Over Beethoven", "Rock and Roll
+                    Music" e "Johnny B. Goode". Suas músicas eram caracterizadas por seu ritmo rápido, suas letras
+                    simples e suas performances energéticas.
+                    Berry foi um dos pioneiros do rock and roll, e seu estilo influenciou gerações de músicos. Ele é
+                    considerado o "pai do rock and roll" e seu legado continua a inspirar músicos até hoje.
+
+                </p>
+                <ul class="legendDate">
+                    <li>Nascimento: 18 de outubro de 1926</li>
+                    <li>Morte: 18 de março de 2017</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legendDescriptionL" data-aos="fade-right">
+                <p>
+                    Richard Wayne Penniman, conhecido como Little Richard, foi um cantor, pianista e compositor
+                    americano que foi uma figura influente na música popular e cultura por sete décadas. Ele era
+                    conhecido por seu estilo flamboyant, voz potente e performances enérgicas, e é considerado um dos
+                    pioneiros do rock and roll.<br>
+                    Ele começou a tocar piano aos três anos de idade e se apresentou em igrejas e programas locais
+                    quando criança. Na adolescência, ele se juntou a uma companhia de teatro itinerante e começou a se
+                    apresentar em clubes de blues. <br>
+                    Penniman foi uma figura importante na cena musical britânica do início dos anos 1960, e sua música
+                    influenciou artistas como os Beatles, os Rolling Stones e os Who. Ele também foi um dos primeiros
+                    músicos negros a desafiar as normas de gênero.
+                </p>
+                <ul class="legendDate">
+                    <li>Nascimento: 5 de dezembro de 1932</li>
+                    <li>Morte: 9 de maio de 2020</li>
+                </ul>
+            </div>
+            <img src="assets/images/legend04.png" alt="Little Richard">
+        </div>
+
+        <div class="legend">
+            <img src="assets/images/legend05.png" alt="Beatles">
+            <div class="legendDescriptionR" data-aos="fade-left">
+                <p>
+                    The Beatles foram uma banda britânica de rock formada em Liverpool em 1960. Composta por John
+                    Lennon, Paul McCartney, George Harrison e Ringo Starr, a banda é considerada uma das mais influentes
+                    e populares de todos os tempos.<br>
+                    O sucesso dos Beatles foi meteórico. Eles lançaram uma série de sucessos consecutivos, incluindo
+                    "Please Please Me", "She Loves You", "A Hard Day's Night", "Help!" e "Yellow Submarine". Suas
+                    músicas combinavam elementos do rock and roll, do pop, do folk e da música clássica, e suas letras
+                    eram frequentemente inovadoras e provocativas. <br>
+                    Os Beatles também foram pioneiros na exploração de novos formatos musicais, como o videoclipe e o
+                    álbum conceitual. Eles também foram influentes na moda e na cultura popular, e sua imagem ajudou a
+                    definir a década de 1960.
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legendDescriptionL" data-aos="fade-right">
+                <p>
+                    Jimi Hendrix, o "Rei do Rock", foi um dos maiores guitarristas de todos os tempos. Seu estilo único
+                    e inovador ajudou a redefinir o rock and roll, e sua influência pode ser ouvida em músicos de todos
+                    os gêneros.<br>
+                    Hendrix nasceu em Seattle, Washington, em 1942. Ele começou a tocar guitarra aos 15 anos e foi
+                    influenciado por uma variedade de artistas, incluindo Muddy Waters, B.B. King e Chuck Berry.<br>
+                    Hendrix era conhecido por suas performances eletrizantes, nas quais ele frequentemente incendiava
+                    sua guitarra e a tocava atrás da cabeça. Ele também era um compositor prolífico, escrevendo músicas
+                    como "Purple Haze", "Hey Joe" e "All Along the Watchtower".
+                </p>
+                <ul class="legendDate">
+                    <li>Nascimento: 27 de novembro de 1942</li>
+                    <li>Morte: 18 de setembro de 1970</li>
+                </ul>
+            </div>
+            <img src="assets/images/legend06.png" alt="Jimi Hendrix">
+        </div>
+
+        <div class="legend">
+            <img src="assets/images/legend07.png" alt="Freddie Mercury">
+            <div class="legendDescriptionR" data-aos="fade-left">
+                <p>
+                    Freddie Mercury,, foi um cantor, compositor e músico britânico. Ele foi o vocalista da banda de rock
+                    Queen, e é considerado um dos maiores vocalistas de todos os tempos.
+                    Mercury começou a tocar piano aos seis anos de idade, e começou a cantar em uma banda de escola aos
+                    12 anos. Formou a banda Queen em 1970.<br>
+                    A banda Queen lançou 15 álbuns de estúdio, que venderam mais de 300 milhões de cópias em todo o
+                    mundo. Eles são conhecidos por seus sucessos como "Bohemian Rhapsody", "We Will Rock You", "We Are
+                    the Champions" e "Don't Stop Me Now".<br>
+                    Mercury era conhecido por sua voz poderosa e versátil, e por suas performances energéticas e
+                    carismáticas. Ele era também um compositor prolífico, escrevendo muitas das músicas mais conhecidas
+                    da banda.<br>
+                </p>
+                <ul class="legendDate">
+                    <li>Nascimento: 5 de setembro de 1946</li>
+                    <li>Morte: 24 de novembro de 1991</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legendDescriptionL" data-aos="fade-right">
+                <p>
+                    Kurt Cobain foi um cantor, compositor e músico americano, conhecido por ser o vocalista, guitarrista
+                    e principal compositor da banda Nirvana.<br>
+                    Cobain começou a tocar guitarra aos 14 anos, e foi influenciado por uma variedade de artistas,
+                    incluindo Black Sabbath, Led Zeppelin, The Beatles, The Clash, e The Pixies. Ele formou o Nirvana
+                    com Krist Novoselic em 1987, e a banda lançou seu álbum de estreia, Bleach, em 1989.<br>
+                    O Nirvana alcançou o sucesso internacional com seu segundo álbum e ajudou a popularizar o grunge, um
+                    gênero de rock alternativo que surgiu na cena musical de Seattle.<br>
+                    Cobain era conhecido por suas letras honestas e cruas, que abordavam temas como ansiedade,
+                    depressão, e abuso de drogas. Ele também era conhecido por sua presença de palco carismática e
+                    energética.
+                </p>
+                <ul class="legendDate">
+                    <li>Nascimento: 20 de fevereiro de 1967</li>
+                    <li>Morte: 5 de abril de 1994</li>
+                </ul>
+            </div>
+            <img src="assets/images/legend08.png" alt="Kurt Cobain">
+        </div>
+
+        <div class="legend">
+            <img src="assets/images/legend09.png" alt="Slash">
+            <div class="legendDescriptionR" data-aos="fade-left">
+                <p>
+                    Slash, nome artístico de Saul Hudson, é um guitarrista britânico-americano. Ele é conhecido por ser
+                    o guitarrista principal da banda de hard rock Guns N' Roses, com quem alcançou sucesso mundial no
+                    final da década de 1980.
+                    Slash começou a tocar guitarra aos 15 anos, e foi influenciado por uma variedade de artistas,
+                    incluindo Jimi Hendrix, Led Zeppelin, e Black Sabbath.<br>
+                    Com Slash como guitarrista principal, o Guns N' Roses tornou-se uma das bandas mais populares do
+                    mundo. Eles lançaram mais dois álbuns de sucesso, Use Your Illusion I e Use Your Illusion II, em
+                    1991.<br>
+                    Slash é considerado um dos maiores guitarristas do mundo. Ele é conhecido por seu estilo único, que
+                    combina elementos de blues, rock, e heavy metal. Ele também é conhecido por seu visual
+                    característico, que inclui uma bandana, óculos escuros, e uma guitarra Gibson Les Paul.
+
+                </p>
+                <ul class="legendDate">
+                    <li>Nascimento: 23 de julho de 1965</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legendDescriptionL" data-aos="fade-right">
+                <p>
+                    Steve Vai é um guitarrista, compositor e produtor musical estadunidense, é considerado um dos
+                    maiores guitarristas do mundo, tendo recebido três prêmios Grammy e quinze indicações.<br>
+                    Steve também é conhecido por suas performances ao vivo, que são conhecidas por sua energia e
+                    virtuosidade. Ele é um dos poucos guitarristas que pode tocar com as duas mãos ao mesmo tempo, uma
+                    técnica que ele chama de "joint shifting".
+                    Vai é um artista prolífico e inovador, e seu trabalho continua a inspirar músicos de todo o mundo.
+                    Ele é um dos nomes mais importantes da história da guitarra e seu legado continuará por muitos
+                    anos.<br>
+                </p>
+                <ul class="legendDate">
+                    <li>Nascimento: 6 de junho de 1960</li>
+                </ul>
+            </div>
+            <img src="assets/images/legend10.png" alt="Elvis Presley">
+        </div>
+
+
+
+    </main>
+
+    <!-- FOOTER -------------------------------------------------------------------------- -->
 
     <footer>
 
@@ -70,7 +328,7 @@
         <ul class="aboutLinks">
             <li><a href="index.html#home" rel="prev">HOME</a></li>
             <li><a href="artigos.html" rel="prev">ARTIGOS</a></li>
-            <li><a href="index.html#section_author" rel="author">SOBRE O AUTHOR</a></li>
+            <li><a href="index.html#section_author" rel="author">SOBRE O AUTOR</a></li>
             <li><a href="https://www.sptech.school/index.html" rel="external" target="_blank">SPTECH</a></li>
         </ul>
 

@@ -74,6 +74,17 @@ function atualizarFotoPerfil(idUsuario, fotoPerfil){
 
 }
 
+function contarCurtidas(idUsuario){
+    
+        instrucao = `
+        SELECT COUNT(*) AS curtidas FROM curtida WHERE fkUsuario = ${idUsuario};
+        `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
 module.exports = {
     autenticar,
     autenticarApelido,
@@ -81,4 +92,5 @@ module.exports = {
     conectarFavoritos,
     atualizarFotoPerfil,
     cadastrar,
+    contarCurtidas,
 };

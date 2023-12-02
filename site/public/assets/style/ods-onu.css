@@ -1,0 +1,126 @@
+/* ODS ONU */
+
+.banner{
+    background-image: url(../images/background-static03.jpg);
+    width: 100%;
+    height: 420px;
+}
+
+.banner img{
+    position: relative;
+}
+
+.banner .ods{
+    margin-left: -350px;
+    bottom: -105px;
+    width: 700px;
+    animation: rotate 115s linear none infinite;
+}
+
+.banner .earth{
+    position: absolute;
+    transform: translate(-50%, 10%);
+    bottom: 0;
+    left: 0;
+    width: 500px;
+}
+
+@keyframes rotate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(-180deg) ;
+    }
+}
+
+/* MAIN */
+
+.odsAbout{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 160px;
+    align-items: center;
+}
+
+.odsText{
+    color: var(--color00);
+    width: 550px;
+    font-size: 1.4em;
+}
+
+.odsText h2{
+    font-size: 1.6em;
+    font-family: var(--title02);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.headerBc{
+    background-color: var(--color11);
+    height: 90px;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid var(--color00);
+    z-index: 2;
+}
+
+.videoYoutube{
+    margin-top: 60px;
+    background-color: var(--color01);
+    height: 530px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+iframe{
+    border-radius: 10px;
+}
+
+h1{
+    color: var(--color00);
+    font-family: var(--title02);
+    text-indent: 10%;
+    font-size: 2.5em;
+    margin: 90px 0 40px 0;
+
+}
+
+.odsCards{
+    width: 950px;
+    height: 420px;
+    margin: 0 auto 90px auto;
+}
+
+#topCard, .bottomRow{
+    border-radius: 15px;
+    width: 100%;
+}
+
+#topCard{
+    height: 210px;
+    background-color: #E5233D;
+    padding: 20px 40px;
+    color: var(--color00);
+    font-family: var(--title02);
+    font-size: 1.4em;
+    transition: 500ms;
+}
+
+.bottomRow{
+    display: flex;
+    flex-grow: grow;
+}
+
+.bottomCard{
+    width: 158px;
+    cursor: pointer;
+}
+
+.bottomCard > img{
+    border-radius: 19px;
+    width: 100%;
+}

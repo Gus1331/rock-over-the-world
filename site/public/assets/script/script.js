@@ -1,3 +1,5 @@
+
+
 let usuarioData;
 
 
@@ -61,7 +63,7 @@ function login() {
 }
 
 function loginOn() {
-    try{
+    try {
         li_login.innerHTML = `
             <div class="profile">
             <a href="perfil.html"><img src="assets/images/profile/${usuarioData.imgPerfil}.jpg"></a>
@@ -72,7 +74,7 @@ function loginOn() {
             </p>
             </div>
             `;
-    }catch{}
+    } catch { }
 }
 
 function logout() {
@@ -80,4 +82,14 @@ function logout() {
     li_login.innerHTML = `
     <button onclick="openLogin();">LOGIN</button>
     `;
+}
+
+function showPasswordDisplay() {
+
+    if (input_login_password.type == "text") {
+        input_login_password.type = "password"
+    }
+    else {
+        input_login_password.type = "text"
+    }
 }

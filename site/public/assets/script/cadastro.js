@@ -325,11 +325,11 @@ function finalizarCadastro() {
     localStorage.setItem('usuario', JSON.stringify(userData[0]));
 
     console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
-    div_error.innerHTML = `Cadastro realizado com sucesso! Redirecionando para tela de Login...`;
+    div_error.innerHTML = `Cadastro realizado com sucesso! Redirecionando para a home page...`;
     div_error.style.display = "block";
     div_error.style.backgroundColor = "rgb(30, 238, 75)";
 
     setTimeout(() => {
         window.location = "index.html";
-    }, "5000");
+    }, "2000");
 }

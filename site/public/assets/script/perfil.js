@@ -10,6 +10,7 @@ function logado() { // Verifica se o usuario está logado ao acessa a página
     setTimeout(() => {
       aplicarDados();
       listarFavoritos();
+      contarCurtidasUsuario();
     }, 200);
   }
 }
@@ -134,6 +135,29 @@ function listarFavoritos() { //Pega os favoritos do bd tabela favoritos
     ).catch(function (erro) {
       console.log(erro);
     })
+}
+
+function contarCurtidasUsuario(){
+  fetch(`/usuarios/contarCurtidas/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      idUsuarioServer: usuarioData.id
+    })
+  }).then(response => {
+    if (!response.ok) {
+      console.log('erro ao trazer dados');
+    }
+    return response.json();
+  })
+    .then(data => {
+      span_n_curtidas.innerHTML = data[0].curtidas
+    }
+      ).catch(function (erro) {
+        console.log(erro);
+      })
 }
 
 /* ONCLICK EDITAR FAVORITOS */

@@ -185,6 +185,25 @@ function atualizarFotoPerfil (req, res){
         );
 }
 
+function contarCurtidas(req, res) {
+    var idUsuario = req.body.idUsuarioServer;
+    
+    usuarioModel.contarCurtidas( idUsuario)
+        .then(resultado => {
+            res.json(resultado);
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao contar curtidas! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+
 module.exports = {
     autenticar,
     autenticarApelido,
@@ -192,4 +211,5 @@ module.exports = {
     requisitarDados,
     atualizarFotoPerfil,
     conectarFavoritos,
+    contarCurtidas,
 }

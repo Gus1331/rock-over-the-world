@@ -34,7 +34,8 @@ CREATE TABLE favoritos (
     
 CREATE TABLE musica (
 	idMusica INT PRIMARY KEY AUTO_INCREMENT,
-    idApiSpotify VARCHAR(45))AUTO_INCREMENT = 1000000;
+    idApiSpotify VARCHAR(45) UNIQUE 
+    )AUTO_INCREMENT = 1000000;
     
     
 CREATE TABLE curtida (
@@ -124,9 +125,11 @@ INSERT INTO curtida(fkMusica, fkUsuario) VALUES
 SELECT COUNT(*) as 'total de curtidas' FROM curtida;
 
 -- select pra listar ranking
-SELECT idApiSpotify as idMusica, COUNT(*) AS likes FROM curtida JOIN musica ON fkMusica = idMusica GROUP BY fkMusica;
+SELECT idApiSpotify as idMusica, COUNT(*) AS likes FROM curtida JOIN musica ON fkMusica = idMusica GROUP BY fkMusica ORDER BY likes DESC;
 
 SELECT idApiSpotify as idMusica FROM curtida JOIN musica ON fkMusica = idMusica WHERE fkUsuario = 10000;
+
+ALTER TABLE musica MODIFY COLUMN idApiSpotify VARCHAR(45) UNIQUE;
 
 INSERT INTO musica VALUES
 	(NULL, '4IsQ9C6xrEiC3e1c1T0eim');
@@ -135,3 +138,4 @@ INSERT INTO curtida(fkMusica, fkUsuario) VALUES
 	(1000002, 10005);
     
 SELECT idApiSpotify AS idMusica FROM musica;
+

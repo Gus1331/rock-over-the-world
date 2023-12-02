@@ -8,16 +8,16 @@
     <link rel="shortcut icon" href="assets/images/favicon.png"> <!-- FAVICON -->
 
     <link rel="stylesheet" href="assets/style/style.css"> <!-- BODY, HEADER, FOOTER -->
-    <link rel="stylesheet" href="assets/style/home.css"> <!-- MAIN (HOMEPAGE) -->
+    <link rel="stylesheet" href="assets/style/ods-onu.css"> <!-- MAIN (ODS ONU) -->
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS library (animações on scroll) -->
 
     <script defer src="assets/script/script.js"></script> <!-- FUNÇÕES PADRÕES, HEADER, FOOTER -->
-    <script defer src="assets/script/home.js"></script> <!-- FUNÇÕES HOME -->
+    <script defer src="assets/script/ods-onu.js"></script> <!-- FUNÇÕES ODS ONU -->
 </head>
 
 <body>
-    
+
     <!-- LOGIN PAGE -->
     <div id="loginPage">
         <div class="topBarLogin"></div>
@@ -79,6 +79,57 @@
 
     </header>
 
+    <div class="banner">
+        <img src="assets/images/onu-board.png" class="ods">
+        <img id="img_earth" src="assets/images/earth.gif" class="earth">
+    </div>
+
+    <div data-aos="fade-down" data-aos-anchor-placement="top-top" class="headerBc"></div>
+
+    <main>
+        <div class="odsAbout">
+            <img src="assets/images/objetivos-ods.png" alt="Objetivos de desenvolvimento sustentavel">
+            <div class="odsText">
+                <h2>O que é?</h2>
+                <p data-aos="fade-left">Os Objetivos de Desenvolvimento Sustentável (ODS), também conhecidos como Agenda 2030, são um plano
+                    de ação global proposto pelas Nações Unidas para promover o desenvolvimento sustentável em todos os
+                    países do mundo. O plano foi adotado em 2015 por 193 países e prevê a erradicação da pobreza, a
+                    proteção do meio ambiente e o combate às mudanças climáticas até 2030.</p>
+            </div>
+        </div>
+
+        <div class="videoYoutube">
+            <div class="videoElement">
+
+
+                    <iframe width="672" height="378" src="https://www.youtube.com/embed/ZSrhXP4-aec?si=QG-besRSknSQyrkv"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe> 
+            </div>
+        </div>
+
+        <h1>Como o rock se encaixa nisso?</h1>
+
+        <div class="odsCards">
+            <div id="topCard" data-aos="flip-up">
+                Muitos artistas de rock escreveram músicas sobre a pobreza e as desigualdades sociais.
+                Essas músicas podem ajudar a conscientizar o público sobre esses problemas e inspirar as pessoas a tomar
+                medidas para combatê-los. <br><br>
+                “Why do they always send the poor?” - System of a Down (2005), em um contexto que a música fala sobre a
+                desigualdade quando enviam somente pessoas de classe social baixa à guerra. 
+            </div>
+            <div class="bottomRow">
+                <div class="bottomCard" onmouseover="mostrarODS(1);"><img src="assets/images/ods-onu01.jpg" alt="ODS"></div>
+                <div class="bottomCard" onmouseover="mostrarODS(3);"><img src="assets/images/ods-onu03.jpg" alt="ODS"></div>
+                <div class="bottomCard" onmouseover="mostrarODS(4);"><img src="assets/images/ods-onu04.jpg" alt="ODS"></div>
+                <div class="bottomCard" onmouseover="mostrarODS(10);"><img src="assets/images/ods-onu10.jpg" alt="ODS"></div>
+                <div class="bottomCard" onmouseover="mostrarODS(13);"><img src="assets/images/ods-onu13.jpg" alt="ODS"></div>
+                <div class="bottomCard" onmouseover="mostrarODS(16);"><img src="assets/images/ods-onu16.jpg" alt="ODS"></div>
+            </div>
+        </div>
+    </main>
+
 
     <footer>
 
@@ -105,7 +156,7 @@
         <ul class="aboutLinks">
             <li><a href="index.html#home" rel="prev">HOME</a></li>
             <li><a href="artigos.html" rel="prev">ARTIGOS</a></li>
-            <li><a href="index.html#section_author" rel="author">SOBRE O AUTHOR</a></li>
+            <li><a href="index.html#section_author" rel="author">SOBRE O AUTOR</a></li>
             <li><a href="https://www.sptech.school/index.html" rel="external" target="_blank">SPTECH</a></li>
         </ul>
 
