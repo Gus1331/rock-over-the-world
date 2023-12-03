@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics</title>
+
+    <link rel="shortcut icon" href="assets/images/favicon.png"> <!-- FAVICON -->
+
+    <link rel="stylesheet" href="assets/style/style.css"> <!-- BODY, HEADER, FOOTER -->
+    <style>
+        h1 {
+            color: var(--color00);
+            font-family: var(--title02);
+            font-size: 2.9em;
+            padding: 35px;
+            margin-left: 20%;
+        }
+
+        h1>img {
+            width: 100px;
+            position: absolute;
+            left: 200px;
+            top: 5px;
+        }
+
+        hr {
+            border: 1px solid var(--color14);
+            margin-bottom: 30px;
+        }
+
+        .charte {
+            width: 400px;
+        }
+
+        .graphic {
+            background-color: var(--color10);
+            display: inline-block;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        body {
+            padding: 0 10%;
+        }
+
+        main {
+            justify-content: space-between;
+            flex-wrap: wrap;
+            display: flex;
+        }
+
+        span {
+            font-size: 2em;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <img src="assets/images/logo01.gif">
+        Analitics
+    </h1>
+    <hr>
+
+    <main>
+        <div class="graphic">
+            <div class="charte">
+                <canvas id="myChart01"></canvas>
+            </div>
+            <span>Total de usuários:</span>
+        </div>
+        <div class="graphic">
+            <div class="charte">
+                <canvas id="myChart02"></canvas>
+            </div>
+            <span>%%%</span>
+        </div>
+        <div class="graphic" style="width: 100%;">
+            <span>Média de idade dos usuários:</span><br>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- CHART JS -->
+    <script>
+        let dados;
+        fetch("/analytics/dadosGerais", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(resposta => {
+            return resposta.json();
+
+        }).then(data => {
+            console.log(data)
+            dados = data[0]
+        }
+        ).catch(function (erro) {
+            console.log(erro);
+        });
+
+
+        setTimeout(() => {
+            let span1 = document.getElementsByTagName("span")[0];
+            let span2 = document.getElementsByTagName("span")[1];
+            let span3 = document.getElementsByTagName("span")[2];
+            let span4 = document.getElementsByTagName("span")[3];
+            let span5 = document.getElementsByTagName("span")[4];
+            const ctx01 = document.getElementById('myChart01');
+            const ctx02 = document.getElementById('myChart02');
+
+
+            new Chart(ctx01, {
+                type: 'radar',
+                data: {
+                    labels: ["Rock 'n' Roll", 'Rock Alternativo', 'Indie Rock', 'Hard Rock', 'Heavy Metal', 'Punk Rock', 'Grunge', 'Rock Progressivo', 'Post Rock'],
+                    datasets: [{
+                        label: 'Usuários',
+                        data: [dados.roll,
+                        dados.alternativo,
+                        dados.indie,
+                        dados.hard,
+                        dados.metal,
+                        dados.punk,
+                        dados.grunge,
+                        dados.progressivo,
+                        dados.post],
+                        borderWidth: 1,
+                        borderColor: "black",
+                        backgroundColor: "crimson"
+                    }]
+                },
+                options: {
+                    scale: {
+                        display: false, // Oculta as linhas de escala
+                        ticks: {
+                            display: false // Oculta os valores numéricos da escala
+                        }
+                    }
+                }
+            });
+
+
+
+            new Chart(ctx02, {
+                type: 'pie',
+                data: {
+                    labels: [
+                        'Homens',
+                        'Mulheres',
+                        'Não declarado'
+                    ],
+                    datasets: [{
+                        label: 'My First Dataset',
+                        data: [dados.homens, dados.mulheres, dados.total - (dados.homens + dados.mulheres)],
+                        backgroundColor: [
+                            '#1759bb',
+                            '#bb1763',
+                            '#22272e'
+                        ],
+                        borderColor: "black",
+                        hoverOffset: 4
+                    }]
+                },
+                display: false, // Oculta as linhas de escala
+                ticks: {
+                    display: false // Oculta os valores numéricos da escala
+                }
+
+            });
+
+            span1.innerHTML += ` ${dados.total}`
+            span2.innerHTML = `${parseInt((dados.homens * 100) / dados.total)}% Homens <br> ${parseInt((dados.mulheres * 100) / dados.total)}% Mulheres <br> ${parseInt(((dados.total - (dados.homens + dados.mulheres)) * 100) / dados.total)}%Não declararam`
+            span3.innerHTML += ` ${parseInt(dados.media)}`
+        }, 500)
+    </script>
+
+</body>
+
+</html>
