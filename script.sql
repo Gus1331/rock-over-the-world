@@ -85,13 +85,14 @@ TRUNCATE table usuario;
 -- DELETE FROM favoritos WHERE idFav = 20000;
 -- DROP DATABASE ROTW;
 
-UPDATE usuario SET imgPerfil = "profile-img01" WHERE apelido = "shineee";
+UPDATE usuario SET dtNasc = "2003-02-10" WHERE apelido = "shineee";
 
 INSERT INTO favoritos(fkUsuario) VALUE (10001);
 
 SELECT DATE_FORMAT(dtConta, "%d/%m/%Y") AS dtConta FROM usuario;
 
 UPDATE usuario SET  imgPerfil = "profile-img03" WHERE apelido = "KevinSampaio";
+UPDATE favoritos SET subGen = "Post Rock" WHERE fkUsuario = 10008;
 
 UPDATE favoritos SET idFav = 20004 WHERE fkUsuario = 10004;
 
@@ -139,3 +140,27 @@ INSERT INTO curtida(fkMusica, fkUsuario) VALUES
     
 SELECT idApiSpotify AS idMusica FROM musica;
 
+SELECT COUNT(*) FROM curtida WHERE fkUsuario = 10000;
+
+SELECT * FROM favoritos;
+
+SELECT DISTINCT(SELECT COUNT(subGen) from favoritos WHERE subGen = "Rock Progressivo") AS "progressivo",
+	(SELECT COUNT(subGen) from favoritos WHERE subGen = "Heavy metal") AS "metal",
+    (SELECT COUNT(subGen) from favoritos WHERE subGen = "Rock 'n' Roll") AS "roll",
+    (SELECT COUNT(subGen) from favoritos WHERE subGen = "Rock Alternativo") AS "alternativo",
+    (SELECT COUNT(subGen) from favoritos WHERE subGen = "Indie Rock") AS "indie",
+    (SELECT COUNT(subGen) from favoritos WHERE subGen = "Hard Rock") AS "hard",		
+    (SELECT COUNT(subGen) from favoritos WHERE subGen = "Punk Rock") AS "punk",
+    (SELECT COUNT(subGen) from favoritos WHERE subGen = "Grunge") AS "grunge",
+    (SELECT COUNT(subGen) from favoritos WHERE subGen = "Post Rock") AS "post",
+    AVG(YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(u.dtNasc)))) AS "media",
+    (SELECT COUNT(sexo) FROM usuario WHERE sexo = "m") AS homens,
+	(SELECT COUNT(sexo) FROM usuario WHERE sexo = "f") AS mulheres,
+    (SELECT COUNT(sexo) FROM usuario) AS "total"
+	FROM favoritos JOIN usuario u ON fkUsuario = idUsuario;
+    
+SELECT DISTINCT(SELECT COUNT(sexo) FROM usuario WHERE sexo = "m") AS homens,
+	(SELECT COUNT(sexo) FROM usuario WHERE sexo = "f") AS mulheres,
+    (SELECT COUNT(sexo) FROM usuario) AS "total";
+    
+SELECT AVG(FLOOR(DATEDIFF(CURRENT_DATE, dtNasc) / 365)) AS idade FROM usuario;

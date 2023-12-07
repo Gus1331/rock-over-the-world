@@ -61,14 +61,13 @@ main {
     padding: 30px 0 0 60px;
 }
 
-.legendDescriptionL ul li ,
-.legendDescriptionR ul li 
-{
+.legendDescriptionL ul li,
+.legendDescriptionR ul li {
     list-style-type: disc;
     list-style-position: inside;
 }
 
-#legendCrown{
+#legendCrown {
     width: 160px;
     position: absolute;
     left: 200px;
@@ -77,13 +76,15 @@ main {
 }
 
 @keyframes theCrown {
-    0%{
+    0% {
         transform: rotate(5deg);
     }
-    50%{
+
+    50% {
         transform: rotate(-25deg);
     }
-    100%{
+
+    100% {
         transform: rotate(5deg);
     }
 }

@@ -137,9 +137,12 @@
                 },
                 options: {
                     scale: {
+                        
                         display: false, // Oculta as linhas de escala
                         ticks: {
-                            display: false // Oculta os valores numéricos da escala
+                            display: false, // Oculta os valores numéricos da escala
+                            stepSize: 1,
+                            beginAtZero: true
                         }
                     }
                 }
@@ -156,7 +159,6 @@
                         'Não declarado'
                     ],
                     datasets: [{
-                        label: 'My First Dataset',
                         data: [dados.homens, dados.mulheres, dados.total - (dados.homens + dados.mulheres)],
                         backgroundColor: [
                             '#1759bb',
@@ -169,6 +171,7 @@
                 },
                 display: false, // Oculta as linhas de escala
                 ticks: {
+                    
                     display: false // Oculta os valores numéricos da escala
                 }
 
